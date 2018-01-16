@@ -1,0 +1,7 @@
+    <form fxLayout="row" fxLayoutAlign="space-between center" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+        <mat-form-field fxFlex color="primary" class="mr">
+            <input [(ngModel)]="searchParams.search" name="search" matInput placeholder="Search for a movie, series, or person...">
+        </mat-form-field>
+        <button mat-icon-button color="primary" (click)="search()"><mat-icon>search</mat-icon></button>
+    </form>
+

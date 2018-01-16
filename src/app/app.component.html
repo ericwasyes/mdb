@@ -1,0 +1,20 @@
+<div class="main-container" [ngClass]="{'dark-theme' : theme == 'dark'}">
+
+    <!-- Header / Search bar -->
+    <navbar [searchParams]="searchParams" (changeThemeEvent)="changeTheme($event)" (searchMovies)="search()"></navbar>    
+    
+    <!-- Movie Detail -->
+    <div *ngIf="selectedMovieId > 0">
+        <movie-detail [movieId]="selectedMovieId" (backToSearch)="selectedMovieId = 0"></movie-detail>
+    </div>
+    
+    <!-- Search Result List -->
+    <movie-list *ngIf="selectedMovieId == 0"
+        [searchResult]="searchResult" 
+        (movieSelected)="selectMovie($event)" 
+        (paginationChanged)="onPaginationChanged($event)">
+    </movie-list>
+
+    <app-footer></app-footer>
+</div>
+

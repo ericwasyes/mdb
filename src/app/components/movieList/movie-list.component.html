@@ -1,0 +1,33 @@
+<div class="mb+" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+    <div *ngFor="let movie of searchResult?.results">
+        <div fxLayout="row" class="search-result-container">
+            <mat-card fxLayout="row" class="search-result-card">
+                <poster-image [posterPath]="movie.poster_path" [type]="'search-list'"></poster-image>
+                <div fxLayout="column" class="search-result-card-body">
+                    <mat-card-header fxLayout="row" fxLayoutAlign="end none">
+                        <div fxFlex>
+                            <mat-card-title>{{movie.title}}</mat-card-title>
+                            <mat-card-subtitle>{{movie.release_date | date: 'shortDate'}}</mat-card-subtitle>
+                        </div>
+                        <div>
+                            <span>{{movie.vote_average}}</span>
+                            <mat-icon>star_rate</mat-icon>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content fxFlex>
+                        <p>
+                            {{movie.overview}}
+                        </p>
+                    </mat-card-content>
+                    <div class="search-result-card-footer">
+                        <button color="primary" mat-button (click)=selectMovie(movie.id)>FULL DETAIL</button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    
+    <mat-paginator *ngIf="searchResult" [length]="searchResult?.total_results" [pageSize]="20" [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="pageEvent = onPaginationChanged($event)">
+    </mat-paginator>
+</div>

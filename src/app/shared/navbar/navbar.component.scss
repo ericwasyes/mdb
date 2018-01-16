@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+.navbar {
+    background-color: #fff;
+
+    .search-row-container {
+        height: 192px;
+    
+        .search-row {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.navbar-dark {
+    background-color: mat-color($mat-grey, 800);
+    color: #fff;
+}
+

@@ -1,0 +1,18 @@
+@mixin app-header-theme($theme) {
+
+    $primary: map-get($theme, primary);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+}
+
+body {
+    background: #fff;
+    min-width: 320px;
+    line-height: 140%;
+}
+
+.main-container {
+    background-color: #eee;
+}
+

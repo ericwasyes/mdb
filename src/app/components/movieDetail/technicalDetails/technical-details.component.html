@@ -1,0 +1,58 @@
+<div class="p+" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+    <div fxFlex>
+        <div class="mv+">
+            <div class="mat-body-2">Runtime</div>
+            <div class="mat-body-1">{{details.runtime}} minutes</div>
+        </div>
+
+        <div class="mv+">
+            <div class="mat-body-2">Budget</div>
+            <div class="mat-body-1">{{details.budget | currency:'USD':true:'2.0'}}</div>
+        </div>
+
+        <div class="mv+">
+            <div class="mat-body-2">Box Office</div>
+            <div class="mat-body-1">{{details.revenue | currency:'USD':true:'2.0'}}</div>
+        </div>
+        <div class="mv+">
+            <div class="mat-body-2">Spoken Languages</div>
+            <div class="mat-body-1">
+                <span *ngFor="let l of details.spoken_languages">
+                    {{l.name}},
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div fxFlex>
+        <div class="mv+">
+            <div class="mat-body-2">Release Date</div>
+            <div class="mat-body-1">{{details.release_date | date: 'longDate'}}</div>
+        </div>
+        <div class="mv+">
+            <div class="mat-body-2">Production Companies</div>
+            <div class="mat-body-1">
+                <span *ngFor="let c of details.production_companies">
+                    {{c.name}},
+                </span>
+            </div>
+        </div>
+
+        <div class="mv+">
+            <div class="mat-body-2">Production Countries</div>
+            <div class="mat-body-1">
+                <span *ngFor="let c of details.production_countries">
+                    {{c.name}},
+                </span>
+            </div>
+        </div>
+
+        <div class="mv+">
+            <div class="mat-body-2">Website</div>
+            <div class="mat-body-1">
+                <a href="{{details.homepage}}">{{details.homepage || 'N/A'}}</a>
+            </div>
+        </div>
+    </div>
+</div>

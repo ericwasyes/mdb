@@ -1,0 +1,21 @@
+.top-billed-cast {
+    margin: 24px 0;
+    
+    .cast-card {
+        width: 15%;
+    
+        img {
+            margin: 0 -24px 0 -24px;
+        }
+
+        .name {
+            font-weight: 700;
+            margin: 0;
+        }
+    
+        .character {
+            margin: 0;
+        }
+    }
+}
+

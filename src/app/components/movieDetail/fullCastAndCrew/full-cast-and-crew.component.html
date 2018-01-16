@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+    <mat-list fxFlex>
+        <h3 mat-subheader>Cast</h3>
+        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let cast of credits.cast">
+            <poster-image [posterPath]="cast.profile_path" type="avatar"></poster-image>
+            <mat-list-item fxFlex>
+                <h4 mat-line>{{cast.name}}</h4>
+                <p mat-line> {{cast.character}} </p>
+            </mat-list-item>
+        </div>
+
+    </mat-list>
+
+    <div *ngIf="groupedCrew" fxLayout="column" fxFlex>
+        <mat-list *ngFor="let group of groupedCrew">
+            <h3 mat-subheader>{{group[0].department}}</h3>
+            <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let crew of group">
+                <poster-image [posterPath]="crew.profile_path" type="avatar"></poster-image>
+                <mat-list-item fxFlex>
+                    <h4 mat-line>{{crew.name}}</h4>
+                    <p mat-line> {{crew.job}} </p>
+                </mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </div>
+</div>

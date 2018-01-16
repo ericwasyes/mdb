@@ -1,0 +1,20 @@
+<div class="top-billed-cast mv++">
+    <h3 class="subheading">Top Billed Cast</h3>
+
+    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="space-around stretch">
+        <div [fxLayout]="firstCol"
+        [fxLayout.xs]="firstColXs"
+        [fxLayout.md]="firstColMd"
+        [fxLayout.lg]="firstColLg"
+        [fxLayout.gt-lg]="firstColGtLg"
+        fxFlex="50%"
+        fxFlex.gt-sm="25">
+        <mat-card *ngFor="let tbc of topBilledCast" class="cast-card">
+                <poster-image [posterPath]="tbc.profile_path" [type]="'profile'" [card]="true"></poster-image>
+                <p class="mat-caption name">{{tbc.name}}</p>
+                <p class="mat-caption character">{{tbc.character}}</p>
+            </mat-card>
+    </div>
+        
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div *ngIf="showReviews" fxFlex="70" fxFlexOffset="15">
+    <mat-card *ngFor="let review of reviews.results" class="review-card">
+        <div class="subheading">
+            {{review.author}}
+        </div>
+        <p>
+            {{review.content}}
+        </p>
+    </mat-card>
+</div>

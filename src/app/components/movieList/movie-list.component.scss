@@ -1,0 +1,21 @@
+.search-result-container {
+    height: 231px;
+    margin: 16px 0;
+}
+
+.search-result-card {
+    width: 100%;
+    padding: 0;
+
+    .search-result-card-body {
+        padding: 16px;
+
+        .mat-card-header-text {
+            margin: 0;
+        }
+        .search-result-card-footer {
+            margin: 0 -8px -8px -8px;
+        }
+    }
+
+}
