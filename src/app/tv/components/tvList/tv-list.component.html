@@ -1,0 +1,13 @@
+<div class="mb+ p+" 
+    [ngClass.md]="{'fixed-width' : true}" 
+    [ngClass.lg]="{'fixed-width' : true}" 
+    [ngClass.xl]="{'fixed-width' : true}">
+    <search-list [type]="'/tv'" [searchResult]="searchResult"></search-list>
+    
+    <mat-paginator *ngIf="searchResult" 
+        [length]="searchResult?.total_results" 
+        [pageSize]="20" 
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="pageEvent = onPaginationChanged($event)">
+    </mat-paginator>
+</div>

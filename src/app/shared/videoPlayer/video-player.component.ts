@@ -4,15 +4,17 @@ import { SafeResourceUrl } from '@angular/platform-browser/src/security/dom_sani
 
 @Component({
     selector: 'video-player',
-    template: `<iframe width="560" height="315" 
-                    [src]="sanitizedUrl" 
-                    frameborder="0" allowfullscreen>
-                </iframe>`
+    template: `
+        <iframe width="300"
+            [src]="sanitizedUrl" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+        `,
 })
 
 export class VideoPlayerComponent implements OnInit {
     @Input() videoUrl: string;
-    private videoBaseUrl: string = 'https://www.youtube.com/watch?v=';
+    private videoBaseUrl: string = 'https://www.youtube.com/embed/';
     sanitizedUrl: SafeResourceUrl;
 
     constructor(

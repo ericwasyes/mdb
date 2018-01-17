@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MovieSearch } from './components/movieSearch/movie-search';
 import { SearchService } from './services/search/search.service';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,42 +9,16 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    searchResult: MovieSearch;
-    selectedMovieId: number = 0;
-    searchParams: any; 
     theme: string = 'light';
 
     constructor(
         private searchService: SearchService,
+        private router: Router
     ) {}
 
-    ngOnInit() {
-        this.searchParams = {
-            page: 1,
-        };
-    }
-
-    search(): void {
-        this.searchService.searchMovies(this.searchParams)
-            .subscribe(movies => {
-                this.searchResult = movies
-                this.selectedMovieId = 0;
-            });
-    }
-
-    selectMovie(id: number): void {
-        this.selectedMovieId = id
-        console.log(this.selectedMovieId);
-
-    }
-
-    onPaginationChanged(pageIndex: number): void {
-        this.searchParams.page = pageIndex;
-        this.search();
-    }
+    ngOnInit() {}
 
     changeTheme(event) {
-        this.theme = event;
-        
+        this.theme = event;     
     }
 }

@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between center">
+    <mat-card class="upcoming-card selectable-card mv+"
+        [routerLink]="[type, item.id]" 
+        fxFlex="48" 
+        fxFlex.sm="100" 
+        fxFlex.xs="100" 
+        *ngFor="let item of items?.results" >
+        <poster-image [posterPath]="item.backdrop_path" [type]="'backdrop'" [card]="true"></poster-image>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <h4 class="mat-subheading-1 mb">{{item.title || item.name}}</h4>            
+            <span class="mat-caption uc-date">{{item.release_date | date : 'shortDate'}}</span>
+        </div>
+        <mat-chip-list>
+            <mat-chip *ngFor="let genre of item.genre_names">{{genre}}</mat-chip>
+        </mat-chip-list>
+    </mat-card>
+</div>

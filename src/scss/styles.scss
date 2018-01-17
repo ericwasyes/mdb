@@ -22,3 +22,14 @@ body {
 .text-center {
     text-align: center;
 }
+
+.selectable-card {
+    -webkit-transition: all 0.2s !important;
+    transition: all 0.3s !important;
+}
+
+.selectable-card:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}

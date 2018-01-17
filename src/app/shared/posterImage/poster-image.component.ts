@@ -1,16 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConfigurationService } from '../../services/configuration/configuration.service';
-import { Configuration } from '../../services/configuration/configuration-response';
+import { Configuration } from '../../models/configuration-response';
 import { Promise } from 'q';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'poster-image',
-    template: `<img 
-                *ngIf="pathIsReady" 
-                class="{{type}}" 
-                [ngClass]="{'mat-card-image' : card, 'mat-elevation-z12' : elevate, 'avatar-img' : type == 'avatar', 'list' : type == 'search-list'}" 
-                src="{{fullPath}}">`,
+    template: `
+        <img 
+            *ngIf="pathIsReady" 
+            class="{{type}}" 
+            [ngClass]="{'mat-card-image' : card, 'mat-elevation-z12' : elevate, 'avatar-img' : type == 'avatar', 'list' : type == 'search-list'}" 
+            src="{{fullPath}}">
+        `,
     styles: [`
         .list {
             width: 154px;
@@ -30,6 +32,7 @@ export class PosterImageComponent implements OnInit {
     @Input() type: string;
     @Input() card: boolean;
     @Input() elevate: boolean;
+    @Input() width: number
     private config: Configuration;
     private defaultPlaceholder: string = '../assets/poster-placeholder.jpg'
     private avatarPlaceholder: string = '../assets/avatar-placeholder.png'
@@ -76,7 +79,6 @@ export class PosterImageComponent implements OnInit {
             this.type == 'profile' ? 'w185' : 
             this.type == 'backdrop' ? 'w780' :
             this.type == 'avatar' ? 'w45_and_h45_bestv2' : 'w154';
-        console.log(result);
         return result;
     }
 

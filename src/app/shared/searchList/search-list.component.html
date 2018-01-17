@@ -1,0 +1,27 @@
+<div *ngFor="let item of searchResult?.results">
+    <div fxLayout="row" class="search-result-container">
+        <mat-card fxLayout="row" class="search-result-card">
+            <poster-image [posterPath]="item.poster_path" [type]="'search-list'"></poster-image>
+            <div fxLayout="column" class="search-result-card-body">
+                <mat-card-header fxLayout="row" fxLayoutAlign="end none">
+                    <div fxFlex>
+                        <mat-card-title>{{item.title || item.name}}</mat-card-title>
+                        <mat-card-subtitle>{{item.release_date | date: 'shortDate'}}</mat-card-subtitle>
+                    </div>
+                    <div>
+                        <span>{{item.vote_average}}</span>
+                        <mat-icon>star_rate</mat-icon>
+                    </div>
+                </mat-card-header>
+                <mat-card-content fxFlex>
+                    <p>
+                        {{item.overview | truncateText : truncateAmt}}
+                    </p>
+                </mat-card-content>
+                <div class="search-result-card-footer">
+                    <button color="primary" mat-button [routerLink]="[type, item.id]">FULL DETAIL</button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

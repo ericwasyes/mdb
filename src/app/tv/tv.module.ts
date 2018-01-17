@@ -8,7 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { DragScrollModule } from 'ngx-drag-scroll';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 // Angular Material
 import {
@@ -27,25 +27,18 @@ import {
     MatSelectModule
  } from '@angular/material';
 
-// Modules
-import { SharedModule } from './shared/shared.module';
-import { AppRoutingModule } from './app-routing.module';
-import { MoviesModule } from './movies/movies.module';
-import { TvModule } from './tv/tv.module';
+ // Modules
+ import { AppRoutingModule } from './../app-routing.module';
+ import { SharedModule } from '../shared/shared.module';
 
-// Components
-import { AppComponent } from './app.component';
+ // Components
+ import { TvListComponent } from './components/tvList/tv-list.component';
+import { TvComponent } from './components/tv/tv.component';
 
 // Services
-import { ConfigurationService } from './services/configuration/configuration.service';
-import { MoviesService } from './services/movies/movies.service';
-import { SearchService } from './services/search/search.service';
-import { GenresService } from './services/genres/genres.service';
+import { TvService } from '../services/tv/tv.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,     
-    ],
     imports: [
         BrowserModule,
         FormsModule,
@@ -68,22 +61,15 @@ import { GenresService } from './services/genres/genres.service';
         MatSelectModule,
         DragScrollModule,
         AppRoutingModule,
-        SharedModule,
-        MoviesModule,
-        TvModule,
-        RouterModule
-
+        SharedModule
+    ],
+    exports: [],
+    declarations: [
+        TvListComponent,
+        TvComponent
     ],
     providers: [
-        ConfigurationService,
-        SearchService,
-        MoviesService,
-        GenresService
+        TvService
     ],
-    bootstrap: [AppComponent]
 })
-export class AppModule {
-    // constructor(router: Router) {
-    //     console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
-    // }
- }
+export class TvModule { }

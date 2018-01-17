@@ -1,18 +1,25 @@
 <mat-toolbar class="navbar mat-elevation-z2" [ngClass]="{'navbar-dark' : theme == 'dark'}">
     <mat-toolbar-row>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
+
+        <full-menu></full-menu>
+        <mobile-menu></mobile-menu>
+
+        <div class="spacer"></div>
+
+        <button mat-icon-button [matMenuTriggerFor]="themeChanger">
             <mat-icon>format_paint</mat-icon>
         </button>
-        <mat-menu #menu="matMenu">
+        <mat-menu #themeChanger="matMenu">
             <button mat-menu-item (click)="changeTheme('light')">Light</button>
             <button mat-menu-item (click)="changeTheme('dark')">Dark</button>
         </mat-menu>
+
     </mat-toolbar-row>
 
     <mat-toolbar-row class="search-row-container">
         <div class="search-row">
             <h1 class="mat-h1">Eric Lund Movie Database</h1>
-            <movie-search [searchParams]="searchParams" (searchMovies)="search()"></movie-search>
+            <searchbar></searchbar>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
