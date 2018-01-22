@@ -19,17 +19,17 @@
     </mat-menu>
 
     <mat-menu #moviesNested="matMenu">
-        <button mat-menu-item [routerLink]="['/movies', { type: 'Popular'}]">Popular</button>
-        <button mat-menu-item [routerLink]="['/movies', { type: 'Top Rated'}]">Top Rated</button>
-        <button mat-menu-item [routerLink]="['/movies', { type: 'Upcoming'}]">Upcoming</button>
-        <button mat-menu-item [routerLink]="['/movies', { type: 'Now Playing'}]">Now Playing</button>
+        <button mat-menu-item [routerLink]="['/movies/featured', { type: 'Popular'}]">Popular</button>
+        <button mat-menu-item [routerLink]="['/movies/featured', { type: 'Top Rated'}]">Top Rated</button>
+        <button mat-menu-item [routerLink]="['/movies/featured', { type: 'Upcoming'}]">Upcoming</button>
+        <button mat-menu-item [routerLink]="['/movies/featured', { type: 'Now Playing'}]">Now Playing</button>
     </mat-menu>
 
     <mat-menu #tvNested="matMenu">
-        <button mat-menu-item [routerLink]="['/tv', { type: 'Popular'}]">Popular</button>
-        <button mat-menu-item [routerLink]="['/tv', { type: 'Top Rated'}]">Top Rated</button>
-        <button mat-menu-item [routerLink]="['/tv', { type: 'On TV'}]">On TV</button>
-        <button mat-menu-item [routerLink]="['/tv', { type: 'Airing Today'}]">Airing Today</button>
+        <button mat-menu-item [routerLink]="['/tv/featured', { type: 'Popular'}]">Popular</button>
+        <button mat-menu-item [routerLink]="['/tv/featured', { type: 'Top Rated'}]">Top Rated</button>
+        <button mat-menu-item [routerLink]="['/tv/featured', { type: 'On TV'}]">On TV</button>
+        <button mat-menu-item [routerLink]="['/tv/featured', { type: 'Airing Today'}]">Airing Today</button>
     </mat-menu>
 
 </div>

@@ -32,16 +32,15 @@ import {
  import { SharedModule } from '../shared/shared.module';
 
  // Components
-import { MovieListComponent } from './components/movieList/movie-list.component';
-import { MovieDetailComponent } from './components/movieDetail/movie-detail.component';
-import { TopBilledCastComponent } from './components/movieDetail/topBilledCast/top-billed-cast.component';
-import { FeaturedCrewComponent } from './components/movieDetail/featuredCrew/featured-crew.component';
-import { TechnicalDetailsComponent } from './components/movieDetail/technicalDetails/technical-details.component';
-import { MediaImagesComponent } from './components/movieDetail/mediaImages/media-images.component';
-import { MediaVideosComponent } from './components/movieDetail/mediaVideos/media-videos.component';
-import { ReviewsComponent } from './components/movieDetail/reviews/reviews.component';
-import { FullCastAndCrewComponent } from './components/movieDetail/fullCastAndCrew/full-cast-and-crew.component';
-import { MoviesComponent } from './components/movies/movies.component';
+import { MoviesListComponent } from './components/list/movies-list.component';
+import { MovieDetailComponent } from './components/detail/movie-detail.component';
+import { TechnicalDetailsComponent } from './components/detail/technicalDetails/technical-details.component';
+import { MediaImagesComponent } from './components/detail/mediaImages/media-images.component';
+import { MediaVideosComponent } from './components/detail/mediaVideos/media-videos.component';
+import { ReviewsComponent } from './components/detail/reviews/reviews.component';
+import { FullCastAndCrewComponent } from './components/detail/fullCastAndCrew/full-cast-and-crew.component';
+import { MoviesComponent } from './movies.component';
+import { MoviesFeaturedComponent } from './components/featured/movies-featured.component';
 
 @NgModule({
     imports: [
@@ -70,10 +69,9 @@ import { MoviesComponent } from './components/movies/movies.component';
     ],
     exports: [],
     declarations: [
-        MovieListComponent,
+        MoviesListComponent,
+        MoviesFeaturedComponent,
         MovieDetailComponent,
-        TopBilledCastComponent,
-        FeaturedCrewComponent,
         TechnicalDetailsComponent,
         MediaImagesComponent,
         MediaVideosComponent,

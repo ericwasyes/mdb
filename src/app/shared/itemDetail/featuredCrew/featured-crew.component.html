@@ -1,0 +1,30 @@
+<div class="mv++">
+    <h3 class="subheading">Featured Crew</h3>
+
+    <div fxLayout="row" *ngIf="type == 'movies'">
+        <div fxFlex *ngIf="director">
+            <div class="mat-body-2">{{director.name}}</div>
+            <div class="mat-body-1">{{director.job}}</div>
+        </div>
+
+        <div fxFlex *ngIf="writers">
+            <div class="mat-body-2">
+                <span *ngFor="let writer of writers">
+                    {{writer?.name}},
+                </span>
+            </div>
+            <div class="mat-body-1">Screenplay</div>
+        </div>
+    </div>
+
+    <div fxLayout="row" *ngIf="type == 'tv'">
+        <div fxFlex *ngFor="let creator of creators">
+            <div class="mat-body-2">
+                <span>
+                    {{creator?.name}}
+                </span>
+            </div>
+            <div class="mat-body-1">Creator</div>
+        </div>
+    </div>
+</div>

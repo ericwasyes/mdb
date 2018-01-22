@@ -10,8 +10,8 @@
             <h4 class="mat-subheading-1 mb">{{item.title || item.name}}</h4>            
             <span class="mat-caption uc-date">{{item.release_date | date : 'shortDate'}}</span>
         </div>
-        <mat-chip-list>
-            <mat-chip *ngFor="let genre of item.genre_names">{{genre}}</mat-chip>
+        <mat-chip-list class="genre-chips">
+            <mat-chip color="primary" *ngFor="let genre of item.genre_names">{{genre}}</mat-chip>
         </mat-chip-list>
     </mat-card>
 </div>

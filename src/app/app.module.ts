@@ -41,6 +41,8 @@ import { ConfigurationService } from './services/configuration/configuration.ser
 import { MoviesService } from './services/movies/movies.service';
 import { SearchService } from './services/search/search.service';
 import { GenresService } from './services/genres/genres.service';
+import { TvSeasonsService } from './services/tvSeasons/tv-seasons.service';
+import { TvService } from './services/tv/tv.service';
 
 @NgModule({
     declarations: [
@@ -78,7 +80,9 @@ import { GenresService } from './services/genres/genres.service';
         ConfigurationService,
         SearchService,
         MoviesService,
-        GenresService
+        GenresService,
+        TvService,
+        TvSeasonsService
     ],
     bootstrap: [AppComponent]
 })

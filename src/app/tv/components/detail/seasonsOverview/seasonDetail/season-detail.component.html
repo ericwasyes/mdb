@@ -1,0 +1,9 @@
+<div fxLayout="row" *ngIf="isLoaded" fxLayout.sm="column" fxLayout.xs="column">
+    <div [ngClass.xs]="{'text-center' : true}" [ngClass.sm]="{'text-center' : true}">
+        <poster-image [posterPath]="season?.poster_path" [elevate]="true" [type]="search-list"></poster-image>
+    </div>
+    <div class="ml++">
+        <p>{{season.overview}}</p>
+        <p *ngIf="season.overview == ''">No Description Available</p>
+    </div>
+</div>

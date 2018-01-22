@@ -75,6 +75,7 @@ export class PosterImageComponent implements OnInit {
     determinePosterSize(): string {
         let result = 
             this.type == 'search-list' ? 'w154' : 
+            this.type == 'still' ? 'w300' :
             this.type == 'detail' ? 'w342' : 
             this.type == 'profile' ? 'w185' : 
             this.type == 'backdrop' ? 'w780' :

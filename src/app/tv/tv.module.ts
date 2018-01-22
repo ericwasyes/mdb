@@ -32,11 +32,18 @@ import {
  import { SharedModule } from '../shared/shared.module';
 
  // Components
- import { TvListComponent } from './components/tvList/tv-list.component';
-import { TvComponent } from './components/tv/tv.component';
+import { TvListComponent } from './components/list/tv-list.component';
+import { TvComponent } from './tv.component';
+import { TvFeaturedComponent } from './components/featured/tv-featured.component';
+
+import { TvDetailComponent } from './components/detail/tv-detail.component';
+import { SeasonsOverviewComponent } from './components/detail/seasonsOverview/seasons-overview.component';
+import { SeasonDetailComponent } from './components/detail/seasonsOverview/seasonDetail/season-detail.component';
+import { SeasonComponent } from './components/season/season.component';
 
 // Services
 import { TvService } from '../services/tv/tv.service';
+import { TechnicalDetailsComponent } from './components/detail/technicalDetails/technical-details.component';
 
 @NgModule({
     imports: [
@@ -66,7 +73,13 @@ import { TvService } from '../services/tv/tv.service';
     exports: [],
     declarations: [
         TvListComponent,
-        TvComponent
+        TvComponent,
+        TvFeaturedComponent,
+        TvDetailComponent,
+        SeasonsOverviewComponent,
+        SeasonDetailComponent,
+        TechnicalDetailsComponent,
+        SeasonComponent
     ],
     providers: [
         TvService

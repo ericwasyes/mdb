@@ -1,4 +1,5 @@
-    <form fxLayout="row" fxLayoutAlign="space-between center" 
+    <form fxLayout="row" fxLayoutAlign="space-between stretch" 
+        fxLayout.xs="column" fxLayout.sm="column"
         [ngClass.md]="{'fixed-width' : true}" 
         [ngClass.lg]="{'fixed-width' : true}" 
         [ngClass.xl]="{'fixed-width' : true}">
@@ -6,20 +7,15 @@
         <mat-form-field fxFlex color="primary" class="mr">
             <input [(ngModel)]="searchParams.search" name="search" matInput placeholder="Search for a movie, series, or person...">
         </mat-form-field>
-        <mat-form-field>
-            <mat-select placeholder="Search Type" color="primary" [(value)]="selected">
-                <mat-option *ngFor="let type of searchTypes" [value]="type.name">
-                    {{ type.name }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>Movies</button>
-                <button mat-menu-item>TV</button>
-                <button mat-menu-item>People</button>
-
-            </mat-menu> -->
-        <button mat-icon-button color="primary" (click)="search()"><mat-icon>search</mat-icon></button>
+        <div>
+            <mat-form-field>
+                <mat-select placeholder="Search Type" color="primary" [(value)]="selected">
+                    <mat-option *ngFor="let type of searchTypes" [value]="type.name">
+                        {{ type.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-icon-button color="primary" [disabled]="disableSearch()" (click)="search()"><mat-icon>search</mat-icon></button>
+        </div>  
     </form>
 

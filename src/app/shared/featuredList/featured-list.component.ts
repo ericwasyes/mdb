@@ -3,7 +3,8 @@ import { ListResponse } from '../../models/ListResponse';
 
 @Component({
     selector: 'featured-list',
-    templateUrl: 'featured-list.component.html'
+    templateUrl: 'featured-list.component.html',
+    styleUrls: ['featured-list.component.scss']
 })
 
 export class FeaturedListComponent implements OnInit {
@@ -13,6 +14,5 @@ export class FeaturedListComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { 
-        console.log(this.items);
     }
 }

@@ -1,0 +1,44 @@
+<div class="p+" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+    <div fxFlex>
+        <div class="mv+">
+            <div class="mat-body-2">Episode Runtimes</div>
+            <div class="mat-body-1">
+                <span *ngFor="let rt of details.episode_run_time">
+                    {{rt}},
+                </span> minutes
+            </div>
+        </div>
+        
+        <div class="mv+">
+            <div class="mat-body-2">Original Air Date</div>
+            <div class="mat-body-1">{{details.first_air_date | date: 'longDate'}}</div>
+        </div>
+
+        <div class="mv+">
+            <div class="mat-body-2">Networks</div>
+            <div class="mat-body-1">
+                <span *ngFor="let c of details.networks">
+                    {{c.name}},
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div fxFlex>
+        <div class="mv+">
+            <div class="mat-body-2">Production Companies</div>
+            <div class="mat-body-1">
+                <span *ngFor="let c of details.production_companies">
+                    {{c.name}},
+                </span>
+            </div>
+        </div>
+
+        <div class="mv+">
+            <div class="mat-body-2">Website</div>
+            <div class="mat-body-1">
+                <a href="{{details.homepage}}">{{details.homepage || 'N/A'}}</a>
+            </div>
+        </div>
+    </div>
+</div>

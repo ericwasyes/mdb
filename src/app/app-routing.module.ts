@@ -1,46 +1,81 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MoviesComponent } from './movies/components/movies/movies.component';
-import { MovieDetailComponent } from './movies/components/movieDetail/movie-detail.component';
-import { MovieListComponent } from './movies/components/movieList/movie-list.component';
+import { MoviesComponent } from './movies/movies.component';
 import { PageNotFoundComponent } from './shared/pageNotFound/page-not-found.component';
-import { TvListComponent } from './tv/components/tvList/tv-list.component';
-import { TvComponent } from './tv/components/tv/tv.component';
+import { TvListComponent } from './tv/components/list/tv-list.component';
+import { TvComponent } from './tv/tv.component';
+import { TvDetailComponent } from './tv/components/detail/tv-detail.component';
+import { SeasonComponent } from './tv/components/season/season.component';
+import { TvFeaturedComponent } from './tv/components/featured/tv-featured.component';
+import { MoviesFeaturedComponent } from './movies/components/featured/movies-featured.component';
+import { MoviesListComponent } from './movies/components/list/movies-list.component';
+import { MovieDetailComponent } from './movies/components/detail/movie-detail.component';
 
 const appRoutes: Routes = [
     {
-        path: 'movie/:id',
-        component: MovieDetailComponent,
-    },
-    {
         path: 'movies',
         component: MoviesComponent,
+        children: [   
+            {
+                path: 'featured',
+                component: MoviesFeaturedComponent,
+                data: {
+                    title: 'Featured Movies'
+                }
+            },
+            {
+                path: 'search',
+                component: MoviesListComponent,
+                data: {
+                    title: 'Search Movies',
+                }
+            },
+            {
+                path: ':id',
+                component: MovieDetailComponent,
+                children: [
+                    
+                ]
+            }
+        ]
     },
-    // {
-    //     path: 'tv/:id',
-    //     component: TvDetailComponent,
-    // },
     {
         path: 'tv',
         component: TvComponent,
-    },
-    {
-        path: 'movies/search',
-        component: MovieListComponent,
-        data: {
-            title: 'Search Movies',
-        }
-    },
-    {
-        path: 'tv/search',
-        component: TvListComponent,
-        data: {
-            title: 'Search TV Shows',
-        }
-    },
+        children: [   
+            {
+                path: 'featured',
+                component: TvFeaturedComponent,
+                data: {
+                    title: 'Featured TV Shows'
+                }
+            },
+            {
+                path: 'search',
+                component: TvListComponent,
+                data: {
+                    title: 'Search TV Shows',
+                }
+            },
+            {
+                path: ':id',
+                component: TvDetailComponent,
+                children: [
+                    
+                ]
+            },
+            {
+                path: ':id1/season/:id2',
+                component: SeasonComponent
+            }
+        ]
+    }, 
     {
         path: '**', 
-        component: PageNotFoundComponent
+        component: PageNotFoundComponent,
+        data: {
+            title: 'Too much tuna!'
+        }
 
     }
 

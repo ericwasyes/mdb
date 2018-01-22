@@ -42,6 +42,10 @@ import { VideoPlayerComponent } from './videoPlayer/video-player.component';
 import { PageNotFoundComponent } from './pageNotFound/page-not-found.component';
 import { SearchListComponent } from './searchList/search-list.component';
 import { FeaturedListComponent } from './featuredList/featured-list.component';
+import { ItemDetailComponent } from './itemDetail/item-detail.component';
+import { FeaturedCrewComponent } from './itemDetail/featuredCrew/featured-crew.component';
+import { TopBilledCastComponent } from './itemDetail/topBilledCast/top-billed-cast.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 // Pipes
 import { TruncateTextPipe } from './../pipes/truncateText/truncate-text.pipe';
@@ -79,7 +83,9 @@ import { TruncateTextPipe } from './../pipes/truncateText/truncate-text.pipe';
         VideoPlayerComponent,
         PageNotFoundComponent,
         SearchListComponent,
-        FeaturedListComponent
+        FeaturedListComponent,
+        ItemDetailComponent,
+        BreadcrumbsComponent
     ],
     declarations: [
         TruncateTextPipe,
@@ -92,7 +98,11 @@ import { TruncateTextPipe } from './../pipes/truncateText/truncate-text.pipe';
         VideoPlayerComponent,
         PageNotFoundComponent,
         SearchListComponent,
-        FeaturedListComponent
+        FeaturedListComponent,
+        ItemDetailComponent,
+        FeaturedCrewComponent,
+        TopBilledCastComponent,
+        BreadcrumbsComponent
     ],
     providers: [],
 })
