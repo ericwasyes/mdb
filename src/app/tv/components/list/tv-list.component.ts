@@ -4,7 +4,7 @@ import { SearchService } from '../../../services/search/search.service';
 import { SearchList } from '../../../shared/search/search-list';
 
 @Component({
-    selector: 'tv-list',
+    selector: 'app-tv-list',
     templateUrl: 'tv-list.component.html',
     // styleUrls: ['tv-list.component.scss']
 })

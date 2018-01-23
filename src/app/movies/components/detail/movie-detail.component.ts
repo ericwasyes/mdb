@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap, RoutesRecognized } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import { Details } from '../../../models/details';
+import { Details } from '../../../models/movies/details';
 import { MoviesService } from '../../../services/movies/movies.service';
 import { Credits } from '../../../models/credits';
 import { VideosResponse } from '../../../models/videos';
@@ -13,7 +13,7 @@ import { Cast } from '../../../models/cast';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    selector: 'movie-detail',
+    selector: 'app-movie-detail',
     templateUrl: 'movie-detail.component.html',
     styleUrls: ['movie-detail.component.scss']
 })

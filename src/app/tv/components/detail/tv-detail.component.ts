@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap, RoutesRecognized } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import { Details } from '../../../models/details';
+import { TvDetails } from '../../../models/tv/details';
 import { Credits } from '../../../models/credits';
 import { VideosResponse } from '../../../models/videos';
 import { ImagesResponse } from '../../../models/images';
@@ -12,7 +12,7 @@ import { Cast } from '../../../models/cast';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    selector: 'tv-detail',
+    selector: 'app-tv-detail',
     templateUrl: 'tv-detail.component.html',
     // styleUrls: ['tv-detail.component.scss']
 })
@@ -20,7 +20,7 @@ import { Title } from '@angular/platform-browser';
 export class TvDetailComponent implements OnInit {
     previousUrl: string;
     tvId: number;
-    details: Details;
+    details: TvDetails;
     credits: Credits;
     images: ImagesResponse;
     videos: VideosResponse;

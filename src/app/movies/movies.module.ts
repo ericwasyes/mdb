@@ -34,11 +34,11 @@ import {
  // Components
 import { MoviesListComponent } from './components/list/movies-list.component';
 import { MovieDetailComponent } from './components/detail/movie-detail.component';
-import { TechnicalDetailsComponent } from './components/detail/technicalDetails/technical-details.component';
-import { MediaImagesComponent } from './components/detail/mediaImages/media-images.component';
-import { MediaVideosComponent } from './components/detail/mediaVideos/media-videos.component';
+import { TechnicalDetailsComponent } from './components/detail/technical-details/technical-details.component';
+import { MediaImagesComponent } from './components/detail/media-images/media-images.component';
+import { MediaVideosComponent } from './components/detail/media-videos/media-videos.component';
 import { ReviewsComponent } from './components/detail/reviews/reviews.component';
-import { FullCastAndCrewComponent } from './components/detail/fullCastAndCrew/full-cast-and-crew.component';
+import { FullCastAndCrewComponent } from './components/detail/full-cast-and-crew/full-cast-and-crew.component';
 import { MoviesComponent } from './movies.component';
 import { MoviesFeaturedComponent } from './components/featured/movies-featured.component';
 
@@ -77,7 +77,7 @@ import { MoviesFeaturedComponent } from './components/featured/movies-featured.c
         MediaVideosComponent,
         ReviewsComponent,
         FullCastAndCrewComponent,
-        MoviesComponent,
+        MoviesComponent
     ],
     providers: [],
 })

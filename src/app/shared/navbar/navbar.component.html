@@ -1,8 +1,8 @@
 <mat-toolbar class="navbar mat-elevation-z2" [ngClass]="{'navbar-dark' : theme == 'dark'}">
     <mat-toolbar-row>
 
-        <full-menu></full-menu>
-        <mobile-menu></mobile-menu>
+        <app-full-menu></app-full-menu>
+        <app-mobile-menu></app-mobile-menu>
 
         <div class="spacer"></div>
 
@@ -19,7 +19,7 @@
     <mat-toolbar-row class="search-row-container">
         <div class="search-row">
             <h1 class="mat-h1">Eric Lund Movie Database</h1>
-            <searchbar></searchbar>
+            <app-searchbar></app-searchbar>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { SearchService } from '../../services/search/search.service';
 
 @Component({
-    selector: 'searchbar',
+    selector: 'app-searchbar',
     templateUrl: 'searchbar.component.html'
 })
 

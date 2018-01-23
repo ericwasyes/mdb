@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'spacings.scss';
 @import '~@angular/material/theming';
+@import '~@angular/material/theming';
 
 html,
 body {
@@ -32,4 +33,9 @@ body {
     cursor: pointer;
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
+}
+
+.selected-menu-item {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    color: mat-color($mat-indigo, 500) !important;
 }

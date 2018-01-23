@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import { ListResponse } from '../../models/ListResponse';
-import { Details } from '../../models/details';
+import { TvDetails } from '../../models/tv/details';
 import { Credits } from '../../models/credits';
 import { ImagesResponse } from '../../models/images';
 import { VideosResponse } from '../../models/videos';
@@ -55,12 +55,12 @@ export class TvService {
         });
     }
 
-    getDetails(id: number): Observable<Details> {
+    getDetails(id: number): Observable<TvDetails> {
         let localParams = new HttpParams();
 
         localParams = localParams.append('api_key', this.apiKey);
         
-        return this.http.get<Details>(this.baseUrl + id, {
+        return this.http.get<TvDetails>(this.baseUrl + id, {
             params: localParams
         });
     }

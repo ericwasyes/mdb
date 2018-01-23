@@ -3,7 +3,7 @@ import { MoviesService } from '../../../../services/movies/movies.service';
 import { ReviewResults } from '../../../../models/reviews';
 
 @Component({
-    selector: 'reviews',
+    selector: 'app-reviews',
     templateUrl: 'reviews.component.html',
     styleUrls: ['reviews.component.scss']
 })

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MoviesComponent } from './movies/movies.component';
-import { PageNotFoundComponent } from './shared/pageNotFound/page-not-found.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { TvListComponent } from './tv/components/list/tv-list.component';
 import { TvComponent } from './tv/tv.component';
 import { TvDetailComponent } from './tv/components/detail/tv-detail.component';

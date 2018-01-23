@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'full-menu',
+    selector: 'app-full-menu',
     templateUrl: 'menu.component.html'
 })
 

@@ -2,7 +2,7 @@
     [ngClass.md]="{'fixed-width' : true}" 
     [ngClass.lg]="{'fixed-width' : true}" 
     [ngClass.xl]="{'fixed-width' : true}">
-    <search-list [type]="'/tv'" [searchResult]="searchResult"></search-list>
+    <app-search-list [type]="'/tv'" [searchResult]="searchResult"></app-search-list>
     
     <mat-paginator *ngIf="searchResult" 
         [length]="searchResult?.total_results" 

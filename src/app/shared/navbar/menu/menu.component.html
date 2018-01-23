@@ -1,4 +1,11 @@
 <div fxHide.xs="true" fxHide.sm="true">
+    <button mat-button [matMenuTriggerFor]="discover">Discover</button>
+
+    <mat-menu #discover="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item [routerLink]="['/discover']">Movies</button>
+        <button mat-menu-item [routerLink]="['/discover']">TV</button>
+    </mat-menu>
+
     <button mat-button [matMenuTriggerFor]="movies">Movies</button>
     <mat-menu #movies="matMenu" [overlapTrigger]="false">
         <button mat-menu-item [routerLink]="['/movies/featured', { type: 'Popular'}]">Popular</button>

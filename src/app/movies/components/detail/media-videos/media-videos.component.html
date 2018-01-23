@@ -1,0 +1,6 @@
+<div class="p+" fxLayout="row" fxLayoutWrap fxLayoutGap="16px" fxLayoutAlign="center center">
+    <div *ngFor="let video of videos?.results" class="media-videos">
+        <div class="mat-caption"><b>{{video.name}}</b></div>
+        <app-video-player [videoUrl]="video.key"></app-video-player>
+    </div>
+</div>

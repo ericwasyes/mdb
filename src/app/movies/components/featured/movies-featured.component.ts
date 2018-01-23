@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-    selector: 'movies',
+    selector: 'app-movies',
     templateUrl: 'movies-featured.component.html',
     styleUrls: ['movies-featured.component.scss']
 })

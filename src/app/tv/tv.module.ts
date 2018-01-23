@@ -35,15 +35,17 @@ import {
 import { TvListComponent } from './components/list/tv-list.component';
 import { TvComponent } from './tv.component';
 import { TvFeaturedComponent } from './components/featured/tv-featured.component';
-
 import { TvDetailComponent } from './components/detail/tv-detail.component';
-import { SeasonsOverviewComponent } from './components/detail/seasonsOverview/seasons-overview.component';
-import { SeasonDetailComponent } from './components/detail/seasonsOverview/seasonDetail/season-detail.component';
+import { SeasonsOverviewComponent } from './components/detail/seasons-overview/seasons-overview.component';
+import { SeasonDetailComponent } from './components/detail/seasons-overview/season-detail/season-detail.component';
 import { SeasonComponent } from './components/season/season.component';
+import { EpisodeComponent } from './components/season/episode/episode.component';
+import { SeasonCastComponent } from './components/season/season-cast/season-cast.component';
 
 // Services
 import { TvService } from '../services/tv/tv.service';
-import { TechnicalDetailsComponent } from './components/detail/technicalDetails/technical-details.component';
+import { TechnicalDetailsComponent } from './components/detail/technical-details/technical-details.component';
+import { SeasonCrewComponent } from './components/season/season-crew/season-crew.component';
 
 @NgModule({
     imports: [
@@ -79,7 +81,10 @@ import { TechnicalDetailsComponent } from './components/detail/technicalDetails/
         SeasonsOverviewComponent,
         SeasonDetailComponent,
         TechnicalDetailsComponent,
-        SeasonComponent
+        SeasonComponent,
+        EpisodeComponent,
+        SeasonCastComponent,
+        SeasonCrewComponent
     ],
     providers: [
         TvService

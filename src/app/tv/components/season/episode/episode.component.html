@@ -1,0 +1,62 @@
+<mat-card class="mv+ p0">
+    <div class="episode-card-content" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <app-poster-image [posterPath]="episode.still_path" [elevate]="true" [type]="'still'"></app-poster-image>
+        <div class="ml++">
+            <h3>
+                <span class="episode-number">{{episode.episode_number}}</span> {{episode.name}}</h3>
+            <p>{{episode.overview}}</p>
+            <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+                <div fxFlex>
+                    <div class="mat-body-2">
+                        <span *ngFor="let director of episode.directors">
+                            {{director?.name}},
+                        </span>
+                    </div>
+                    <div class="mat-body-1">Director</div>
+                </div>
+                <div fxFlex>
+                    <div class="mat-body-2">
+                        <span *ngFor="let writer of episode.writers">
+                            {{writer?.name}},
+                        </span>
+                    </div>
+                    <div class="mat-body-1">Writer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Full Cast & Crew
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+            <mat-list fxFlex>
+                <h3 mat-subheader>Guest Stars</h3>
+                <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let cast of episode.guest_stars">
+                    <app-poster-image [posterPath]="cast.profile_path" type="avatar"></app-poster-image>
+                    <mat-list-item fxFlex>
+                        <h4 mat-line>{{cast.name}}</h4>
+                        <p mat-line> {{cast.character}} </p>
+                    </mat-list-item>
+                </div>
+
+            </mat-list>
+
+            <div fxLayout="column" fxFlex>
+                <mat-list fxFlex>
+                    <h3 mat-subheader>Crew</h3>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let crew of episode.crew">
+                        <app-poster-image [posterPath]="crew.profile_path" type="avatar"></app-poster-image>
+                        <mat-list-item fxFlex>
+                            <h4 mat-line>{{crew.name}}</h4>
+                            <p mat-line> {{crew.job}} </p>
+                        </mat-list-item>
+                    </div>
+                </mat-list>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-card>

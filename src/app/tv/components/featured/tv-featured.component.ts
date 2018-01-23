@@ -10,7 +10,7 @@ import { TvService } from '../../../services/tv/tv.service';
 import { isObject } from 'lodash'
 
 @Component({
-    selector: 'tv-featured',
+    selector: 'app-tv-featured',
     templateUrl: 'tv-featured.component.html',
     // styleUrls: ['tv.component.scss']
 })
@@ -34,16 +34,23 @@ export class TvFeaturedComponent implements OnInit {
         
         this.menuItems = [
             {
-                name: 'Popular'
+                name: 'Popular',
+                selected: false
             },
             {
-                name: 'Top Rated'
+                name: 'Top Rated',
+                selected: false
+
             },
             {
-                name: 'On TV'
+                name: 'On TV',
+                selected: false
+
             },
             {
-                name: 'Airing Today'
+                name: 'Airing Today',
+                selected: false
+
             }
         ]
 

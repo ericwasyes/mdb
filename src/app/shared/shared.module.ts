@@ -35,20 +35,21 @@ import { TvModule } from '../tv/tv.module';
 import { SearchbarComponent } from './search/searchbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenuComponent } from './navbar/menu/menu.component';
-import { MobileMenuComponent } from './navbar/mobileMenu/mobile-menu.component';
+import { MobileMenuComponent } from './navbar/mobile-menu/mobile-menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { PosterImageComponent } from './posterImage/poster-image.component';
-import { VideoPlayerComponent } from './videoPlayer/video-player.component';
-import { PageNotFoundComponent } from './pageNotFound/page-not-found.component';
-import { SearchListComponent } from './searchList/search-list.component';
-import { FeaturedListComponent } from './featuredList/featured-list.component';
-import { ItemDetailComponent } from './itemDetail/item-detail.component';
-import { FeaturedCrewComponent } from './itemDetail/featuredCrew/featured-crew.component';
-import { TopBilledCastComponent } from './itemDetail/topBilledCast/top-billed-cast.component';
+import { PosterImageComponent } from './poster-image/poster-image.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchListComponent } from './search-list/search-list.component';
+import { FeaturedListComponent } from './featured-list/featured-list.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { FeaturedCrewComponent } from './item-detail/featured-crew/featured-crew.component';
+import { TopBilledCastComponent } from './item-detail/top-billed-cast/top-billed-cast.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 // Pipes
-import { TruncateTextPipe } from './../pipes/truncateText/truncate-text.pipe';
+import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
+import { DiscoverComponent } from './discover/discover.component';
 
 @NgModule({
     imports: [
@@ -102,7 +103,8 @@ import { TruncateTextPipe } from './../pipes/truncateText/truncate-text.pipe';
         ItemDetailComponent,
         FeaturedCrewComponent,
         TopBilledCastComponent,
-        BreadcrumbsComponent
+        BreadcrumbsComponent,
+        DiscoverComponent
     ],
     providers: [],
 })

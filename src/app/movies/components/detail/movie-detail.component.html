@@ -5,32 +5,32 @@
                 <mat-icon>arrow_back</mat-icon>
                 Back
             </button>      
-            <item-detail *ngIf="details && credits" [type]="'movies'" [details]="details" [credits]="credits" [voteColor]="voteColor"></item-detail>
+            <app-item-detail *ngIf="details && credits" [type]="'movies'" [details]="details" [credits]="credits" [voteColor]="voteColor"></app-item-detail>
         </div>
     </div>
     
     <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-        <mat-tab-group dynamicHeight="true">
+        <mat-tab-group dynamicHeight="true" mat-stretch-tabs>
             <mat-tab label="Full Cast & Crew">
-                <full-cast-and-crew *ngIf="credits" [credits]="credits"></full-cast-and-crew>
+                <app-full-cast-and-crew *ngIf="credits" [credits]="credits"></app-full-cast-and-crew>
             </mat-tab>
             <mat-tab label="Technical Details">
-                <technical-details *ngIf="details" [details]="details"></technical-details>
+                <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
             </mat-tab>
             <mat-tab label="Reviews">
-                <reviews [movieId]="movieId"></reviews>
+                <app-reviews [movieId]="movieId"></app-reviews>
             </mat-tab>
             <mat-tab label="Images">
                 <ng-template mat-tab-label>
                     Images ({{images?.backdrops.length + images?.posters.length}})
                 </ng-template>
-                <media-images [images]="images"></media-images>
+                <app-media-images [images]="images"></app-media-images>
             </mat-tab>
             <mat-tab>
                 <ng-template mat-tab-label>
                     Videos ({{videos?.results.length}})
                 </ng-template>
-                <media-videos [videos]="videos"></media-videos>
+                <app-media-videos [videos]="videos"></app-media-videos>
             </mat-tab>
         </mat-tab-group>
     </div>

@@ -1,24 +1,24 @@
 <div class="mb+ p+">
     <div class="movie-detail">
         <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-            <breadcrumbs></breadcrumbs>
-            <item-detail *ngIf="details && credits" [type]="'tv'" [details]="details" [credits]="credits" [voteColor]="voteColor"></item-detail>
+            <app-breadcrumbs></app-breadcrumbs>
+            <app-item-detail *ngIf="details && credits" [type]="'tv'" [details]="details" [credits]="credits" [voteColor]="voteColor"></app-item-detail>
         </div>
     </div>
 
     <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-        <mat-tab-group dynamicHeight="true">
+        <mat-tab-group dynamicHeight="true" mat-stretch-tabs>
             <mat-tab>
                 <ng-template mat-tab-label>
                     Seasons ({{details?.seasons.length}})
                 </ng-template>
-                <seasons-overview *ngIf="details" [tvId]="details.id" [seasons]="details.seasons"></seasons-overview>
+                <app-seasons-overview *ngIf="details" [tvId]="details.id" [seasons]="details.seasons"></app-seasons-overview>
             </mat-tab>
             <!-- <mat-tab label="Full Cast & Crew">
                 <full-cast-and-crew *ngIf="credits" [credits]="credits"></full-cast-and-crew>
             </mat-tab> -->
             <mat-tab label="Technical Details">
-                <technical-details *ngIf="details" [details]="details"></technical-details>
+                <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
             </mat-tab>
             <!-- <mat-tab label="Reviews">
                 <reviews [movieId]="movieId"></reviews>
