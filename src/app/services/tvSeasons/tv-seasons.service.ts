@@ -11,29 +11,15 @@ import { Season } from "../../models/tvSeasons/tv-season";
 
 @Injectable()
 export class TvSeasonsService {
-
     private baseUrl = 'https://api.themoviedb.org/3/tv/';
-    private apiKey = 'd624997cbe9ca39eb651bce6b61232e3';
 
     constructor(private http: HttpClient) { }
 
-    getDetails(tvId: number, seasonNumber: number): Observable<Season> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-        
-        return this.http.get<Season>(this.baseUrl + tvId + '/season/' + seasonNumber, {
-            params: localParams
-        });
+    getDetails(tvId: number, seasonNumber: number): Observable<Season> {   
+        return this.http.get<Season>(this.baseUrl + tvId + '/season/' + seasonNumber);
     }
 
     getCredits(tvId: number, seasonNumber: number): Observable<Credits> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<Credits>(this.baseUrl + tvId + '/season/' + seasonNumber + '/credits', {
-            params: localParams
-        });
+        return this.http.get<Credits>(this.baseUrl + tvId + '/season/' + seasonNumber + '/credits');
     }
 }

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
@@ -24,7 +24,8 @@ import {
     MatChipsModule,
     MatMenuModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule
  } from '@angular/material';
 
 // Modules
@@ -32,6 +33,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { MoviesModule } from './movies/movies.module';
 import { TvModule } from './tv/tv.module';
+import { PeopleModule } from './people/people.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -43,6 +45,7 @@ import { SearchService } from './services/search/search.service';
 import { GenresService } from './services/genres/genres.service';
 import { TvSeasonsService } from './services/tvSeasons/tv-seasons.service';
 import { TvService } from './services/tv/tv.service';
+import { TieInterceptor } from './http-interseptor';
 
 @NgModule({
     declarations: [
@@ -65,6 +68,7 @@ import { TvService } from './services/tv/tv.service';
         MatTabsModule,
         MatChipsModule,
         MatMenuModule,
+        MatButtonToggleModule,
         RoundProgressModule,
         MatGridListModule,
         MatSelectModule,
@@ -73,6 +77,7 @@ import { TvService } from './services/tv/tv.service';
         SharedModule,
         MoviesModule,
         TvModule,
+        PeopleModule,
         RouterModule
 
     ],
@@ -82,12 +87,13 @@ import { TvService } from './services/tv/tv.service';
         MoviesService,
         GenresService,
         TvService,
-        TvSeasonsService
+        TvSeasonsService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TieInterceptor,
+            multi: true
+        }
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {
-    // constructor(router: Router) {
-    //     console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
-    // }
- }
+export class AppModule {}

@@ -1,0 +1,67 @@
+<div class="mat-typography">
+    <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="creditsType" (change)="toggleCreditType($event)">
+        <mat-button-toggle value="movies">
+            Movies
+        </mat-button-toggle>
+        <mat-button-toggle value="tv">
+            TV Shows
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+    
+    <div class="row example-split" fxHide.xl="true" fxHide.lg="true" fxHide.md="true">
+        <ul class="timeline timeline-split" *ngFor="let c of credits; index as i">
+            <li class="timeline-item period" 
+                *ngIf="isYearDifferent(credits[i], credits[i + 1])">
+                <div class="timeline-info"></div>
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h2 class="timeline-title">{{c.release_date || c.first_air_date | date : 'yyyy'}} 
+                    </h2>
+                    <span *ngIf="creditsType == 'tv'" class="mat-caption">original air date</span>
+
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-info">
+                    <span>{{c.release_date || c.first_air_date | date : 'MMM dd'}}</span>
+                </div>
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title mb">{{c.title || c.name}}</h3>
+                    <p>{{c.character || c.job}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row example-centered" fxHide.xs="true" fxHide.sm="true">
+        <ul class="timeline timeline-centered" 
+        *ngFor="let c of credits; index as i; let odd=odd; let even=even">
+            <li class="timeline-item period"
+                *ngIf="isYearDifferent(credits[i], credits[i + 1])">
+                <div class="timeline-info"></div>
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h2 class="timeline-title">{{c.release_date || c.first_air_date | date : 'yyyy'}}
+                    </h2>
+                    <span *ngIf="creditsType == 'tv'" class="mat-caption">original air date</span>
+
+                </div>
+            </li>
+            <li 
+                class="timeline-item" 
+                [class.timeline-item-odd]="odd" 
+                [class.timeline-item-even]="even" 
+                fxLayout="row" fxLayoutAlign="center stretch">
+                <div class="timeline-info" fxFlex>
+                    <span>{{c.release_date || c.first_air_date | date : 'MMM dd'}}</span>
+                </div>
+                <div class="timeline-marker"></div>
+                <div class="timeline-content" fxFlex>
+                    <h3 class="timeline-title mb">{{c.title || c.name}}</h3>
+                    <p>{{c.character || c.job}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

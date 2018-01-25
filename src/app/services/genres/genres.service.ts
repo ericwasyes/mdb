@@ -7,29 +7,15 @@ import { GenresResponse } from '../../models/genres';
 
 @Injectable()
 export class GenresService {
-
     private baseUrl = 'https://api.themoviedb.org/3/genre/';
-    private apiKey = 'd624997cbe9ca39eb651bce6b61232e3';
 
     constructor(private http: HttpClient) { }
     
     getMovieList(): Observable<GenresResponse> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<GenresResponse>(this.baseUrl + 'movie/list', {
-            params: localParams
-        })
+        return this.http.get<GenresResponse>(this.baseUrl + 'movie/list');
     }
 
     getTvList(): Observable<GenresResponse> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<GenresResponse>(this.baseUrl + 'tv/list', {
-            params: localParams
-        })
+        return this.http.get<GenresResponse>(this.baseUrl + 'tv/list');
     }
 }

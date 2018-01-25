@@ -9,89 +9,39 @@ import { VideosResponse } from '../../models/videos';
 
 @Injectable()
 export class TvService {
-
     private baseUrl = 'https://api.themoviedb.org/3/tv/';
-    private apiKey = 'd624997cbe9ca39eb651bce6b61232e3';
 
     constructor(private http: HttpClient) { }
 
     getPopular(): Observable<any> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<ListResponse>(this.baseUrl + 'popular', {
-            params: localParams
-        });
+        return this.http.get<ListResponse>(this.baseUrl + 'popular');
     }
 
     getTopRated(): Observable<ListResponse> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<ListResponse>(this.baseUrl + 'top_rated', {
-            params: localParams
-        });
+        return this.http.get<ListResponse>(this.baseUrl + 'top_rated');
     }
 
     getCurrentlyAiring(): Observable<ListResponse> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<ListResponse>(this.baseUrl + 'on_the_air', {
-            params: localParams
-        });
+        return this.http.get<ListResponse>(this.baseUrl + 'on_the_air');
     }
 
     getAiringToday(): Observable<ListResponse> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<ListResponse>(this.baseUrl + 'airing_today', {
-            params: localParams
-        });
+        return this.http.get<ListResponse>(this.baseUrl + 'airing_today');
     }
 
-    getDetails(id: number): Observable<TvDetails> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-        
-        return this.http.get<TvDetails>(this.baseUrl + id, {
-            params: localParams
-        });
+    getDetails(id: number): Observable<TvDetails> {      
+        return this.http.get<TvDetails>(this.baseUrl + id);
     }
 
     getCredits(id: number): Observable<Credits> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<Credits>(this.baseUrl + id + '/credits', {
-            params: localParams
-        });
+        return this.http.get<Credits>(this.baseUrl + id + '/credits');
     }
 
     getImages(id: number): Observable<ImagesResponse> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<ImagesResponse>(this.baseUrl + id + '/images', {
-            params: localParams
-        });
+        return this.http.get<ImagesResponse>(this.baseUrl + id + '/images');
     }
 
     getVideos(id: number): Observable<VideosResponse> {
-        let localParams = new HttpParams();
-
-        localParams = localParams.append('api_key', this.apiKey);
-
-        return this.http.get<VideosResponse>(this.baseUrl + id + '/videos', {
-            params: localParams
-        });
+        return this.http.get<VideosResponse>(this.baseUrl + id + '/videos');
     }
 }

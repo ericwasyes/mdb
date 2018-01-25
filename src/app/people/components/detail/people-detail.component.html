@@ -1,0 +1,46 @@
+<div class="mb+ p+ mat-typography">
+    <div class="movie-detail mb++">
+        <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+            <app-breadcrumbs></app-breadcrumbs>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="24px" fxLayoutAlign="space-between none">
+                <div [ngClass.xs]="{'text-center' : true}" [ngClass.sm]="{'text-center' : true}">
+                    <app-poster-image [posterPath]="details?.profile_path" [type]="'detail'" [elevate]="true"></app-poster-image>
+                </div>
+                <div fxFlex class="mat-typography">
+                    <h1 class="mat-headline">{{details?.name}}</h1>
+
+                    <h3 class="subheading">Biography</h3>
+                    <span class="mat-body-1">{{details?.biography}}</span>
+
+                    <app-known-for [knownFor]="knownFor"></app-known-for>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+        
+        <h3 class="subheading">Filmography</h3>
+        
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Acting ({{movieCredits?.cast.length + tvCredits?.cast.length}})
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-people-credits *ngIf="tvCredits && movieCredits" [tvCredits]="tvCredits.cast" [movieCredits]="movieCredits.cast"></app-people-credits>
+            </mat-expansion-panel>
+            <mat-expansion-panel *ngFor="let group of groupedMovieCrew">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{group[0].department}} ({{group.length}})
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-people-credits *ngIf="tvCredits && movieCredits" [tvCredits]="group" [movieCredits]="group"></app-people-credits>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

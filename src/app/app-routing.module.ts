@@ -10,6 +10,9 @@ import { TvFeaturedComponent } from './tv/components/featured/tv-featured.compon
 import { MoviesFeaturedComponent } from './movies/components/featured/movies-featured.component';
 import { MoviesListComponent } from './movies/components/list/movies-list.component';
 import { MovieDetailComponent } from './movies/components/detail/movie-detail.component';
+import { PeopleComponent } from './people/people.component';
+import { PeopleDetailComponent } from './people/components/detail/people-detail.component';
+import { PeopleListComponent } from './people/components/list/people-list.component';
 
 const appRoutes: Routes = [
     {
@@ -70,6 +73,30 @@ const appRoutes: Routes = [
             }
         ]
     }, 
+    {
+        path: 'people',
+        component: PeopleComponent,
+        children: [
+            // {
+            //     path: 'featured',
+            //     component: PeopleFeaturedComponent,
+            //     data: {
+            //         title: 'Featured People'
+            //     }
+            // },
+            {
+                path: 'search',
+                component: PeopleListComponent,
+                data: {
+                    title: 'Search People',
+                }
+            },
+            {
+                path: ':id',
+                component: PeopleDetailComponent,
+            }
+        ]
+    },
     {
         path: '**', 
         component: PageNotFoundComponent,

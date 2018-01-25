@@ -23,8 +23,4 @@ export class FullCastAndCrewComponent implements OnInit {
     groupByDepartment(crew: Crew[]): Dictionary<Crew[]> {
         return groupBy(crew, 'department' );
     }
-
-    getFullProfilePath() {
-
-    }
 }

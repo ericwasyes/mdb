@@ -1,0 +1,38 @@
+<div class="mb+ p+" *ngIf="loaded"
+    [ngClass.md]="{'fixed-width' : true}" 
+    [ngClass.lg]="{'fixed-width' : true}" 
+    [ngClass.xl]="{'fixed-width' : true}">
+    
+
+    <div *ngFor="let item of searchResult?.results">
+        <div fxLayout="row" class="search-result-container">
+            <mat-card fxLayout="row" fxLayoutAlign="start"  class="search-result-card">
+                <app-poster-image [posterPath]="item.profile_path" [type]="'search-list'"></app-poster-image>
+                <div fxLayout="column" class="search-result-card-body">
+                    <mat-card-header>
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                        <mat-card-subtitle>Known For</mat-card-subtitle>
+                    </mat-card-header>
+                    <!-- <mat-card-content fxFlex> -->
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <div *ngFor="let kf of item.known_for" class="mr+ selectable-card" [routerLink]="['/movies', kf.id]" matTooltip="{{kf.title}}">
+                                <app-poster-image [posterPath]="kf.poster_path" [type]="'known-for'" [elevate]="true"></app-poster-image>
+                            </div>
+                        </div>
+                        
+                    <!-- </mat-card-content> -->
+                    <div class="search-result-card-footer">
+                        <button color="primary" mat-button [routerLink]="['/people', item.id]">Full Detail</button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+
+    <mat-paginator *ngIf="searchResult" 
+        [length]="searchResult?.total_results" 
+        [pageSize]="20" 
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="pageEvent = onPaginationChanged($event)">
+    </mat-paginator>
+</div>

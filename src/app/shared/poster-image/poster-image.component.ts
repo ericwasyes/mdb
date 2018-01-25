@@ -10,13 +10,22 @@ import { Subscription } from 'rxjs/Subscription';
         <img 
             *ngIf="pathIsReady" 
             class="{{type}}" 
-            [ngClass]="{'mat-card-image' : card, 'mat-elevation-z12' : elevate, 'avatar-img' : type == 'avatar', 'list' : type == 'search-list'}" 
+            [ngClass]="{
+                'mat-card-image' : card, 
+                'known-for' : type == 'known-for',
+                'mat-elevation-z4' : elevate, 
+                'avatar-img' : type == 'avatar', 
+                'list' : type == 'search-list'
+            }" 
             src="{{fullPath}}">
         `,
     styles: [`
         .list {
             width: 154px;
             height: 231px;
+        }
+        .known-for {
+            height: 110px;
         }       
         .detail {
             width: 342px;
@@ -79,6 +88,7 @@ export class PosterImageComponent implements OnInit {
 
     determinePosterSize(): string {
         let result = 
+            this.type == 'known-for' ? 'w92' :
             this.type == 'search-list' ? 'w154' : 
             this.type == 'still' ? 'w300' :
             this.type == 'detail' ? 'w342' : 
