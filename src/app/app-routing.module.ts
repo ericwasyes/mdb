@@ -77,13 +77,6 @@ const appRoutes: Routes = [
         path: 'people',
         component: PeopleComponent,
         children: [
-            // {
-            //     path: 'featured',
-            //     component: PeopleFeaturedComponent,
-            //     data: {
-            //         title: 'Featured People'
-            //     }
-            // },
             {
                 path: 'search',
                 component: PeopleListComponent,
@@ -98,15 +91,17 @@ const appRoutes: Routes = [
         ]
     },
     {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'movies/featured;type=Popular',
+    },
+    {
         path: '**', 
         component: PageNotFoundComponent,
         data: {
-            title: 'Too much tuna!'
+            title: 'Whoops!'
         }
-
     }
-
-
 ];
 
 @NgModule({

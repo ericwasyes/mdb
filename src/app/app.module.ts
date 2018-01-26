@@ -45,7 +45,7 @@ import { SearchService } from './services/search/search.service';
 import { GenresService } from './services/genres/genres.service';
 import { TvSeasonsService } from './services/tvSeasons/tv-seasons.service';
 import { TvService } from './services/tv/tv.service';
-import { TieInterceptor } from './http-interseptor';
+import { TieInterceptor } from './http-interceptor';
 
 @NgModule({
     declarations: [

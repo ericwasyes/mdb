@@ -48,6 +48,7 @@ export class MoviesFeaturedComponent implements OnInit {
 
         this.route.params
             .subscribe(params => {
+                console.log(params);
                 this.type = params['type'];
                 this.getMovieGenreList()
                     .subscribe(results => {

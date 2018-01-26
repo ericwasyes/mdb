@@ -1,5 +1,5 @@
 <div fxHide.xs="true" fxHide.sm="true">
-    <button mat-button [matMenuTriggerFor]="discover">Discover</button>
+    <button mat-button disabled [matMenuTriggerFor]="discover">Discover</button>
 
     <mat-menu #discover="matMenu" [overlapTrigger]="false">
         <button mat-menu-item [routerLink]="['/discover']">Movies</button>
