@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="24px" fxLayoutAlign="space-between none">
     <div [ngClass.xs]="{'text-center' : true}" [ngClass.sm]="{'text-center' : true}">
-        <app-poster-image [posterPath]="details.poster_path" [type]="'detail'" [elevate]="true"></app-poster-image>
+        <app-image-viewer [posterPath]="details.poster_path" [type]="'detail'" [elevate]="true"></app-image-viewer>
     </div>
     <div fxFlex class="mat-typography">
         <div fxLayout="row" fxLayoutAlign="end none">

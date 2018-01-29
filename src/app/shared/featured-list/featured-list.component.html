@@ -5,7 +5,7 @@
         fxFlex.sm="100" 
         fxFlex.xs="100" 
         *ngFor="let item of items?.results" >
-        <app-poster-image [posterPath]="item.backdrop_path" [type]="'backdrop'" [card]="true"></app-poster-image>
+        <app-image-viewer [posterPath]="item.backdrop_path" [type]="'backdrop'" [card]="true"></app-image-viewer>
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <h4 class="mat-subheading-1 mb">{{item.title || item.name}}</h4>            
             <span class="mat-caption uc-date">{{item.release_date | date : 'shortDate'}}</span>

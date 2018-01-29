@@ -1,0 +1,7 @@
+<div class="p+ mat-typography">
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card *ngFor="let profile of images?.profiles" class="m+ p0 selectable-card">
+            <app-image-viewer [images]="images.profiles" [posterPath]="profile.file_path" [type]="'search-list'" [dialog]="true"></app-image-viewer>
+        </mat-card>
+    </div>
+</div>

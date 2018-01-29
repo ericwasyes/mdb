@@ -16,6 +16,7 @@ export class PeopleDetailComponent implements OnInit {
     details: PeopleDetails;
     tvCredits: any;
     movieCredits: any;
+    images: any;
     creditsLoaded: boolean
     groupedTvCrew: any;
     groupedMovieCrew: any;
@@ -36,7 +37,7 @@ export class PeopleDetailComponent implements OnInit {
                 this.getDetails();
                 this.getTvCredits();
                 this.getMovieCredits();
-
+                this.getImages();
                 this.creditsLoaded = true;
             });
     }
@@ -67,6 +68,13 @@ export class PeopleDetailComponent implements OnInit {
 
                 console.log(this.groupedMovieCrew);
             });
+    }
+
+    getImages(): void {
+        this.peopleService.getImages(this.personId)
+            .subscribe(images => {
+                this.images = images;
+            })
     }
 
     groupByDepartment(crew: Crew[]): Dictionary<Crew[]> {

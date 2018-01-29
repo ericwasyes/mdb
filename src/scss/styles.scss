@@ -44,3 +44,8 @@ h1 {
     background-color: rgba(0, 0, 0, 0.12) !important;
     color: mat-color($mat-indigo, 500) !important;
 }
+
+.image-dialog-backdrop {
+    background: rgba(0,0,0,.6) !important;
+    opacity: 1 !important;
+}

@@ -7,7 +7,7 @@
     <div *ngFor="let item of searchResult?.results">
         <div fxLayout="row" class="search-result-container">
             <mat-card fxLayout="row" fxLayoutAlign="start"  class="search-result-card">
-                <app-poster-image [posterPath]="item.profile_path" [type]="'search-list'"></app-poster-image>
+                <app-image-viewer [posterPath]="item.profile_path" [type]="'search-list'"></app-image-viewer>
                 <div fxLayout="column" class="search-result-card-body">
                     <mat-card-header>
                         <mat-card-title>{{item.name}}</mat-card-title>
@@ -16,7 +16,7 @@
                     <!-- <mat-card-content fxFlex> -->
                         <div fxLayout="row" fxLayoutAlign="start center">
                             <div *ngFor="let kf of item.known_for" class="mr+ selectable-card" [routerLink]="['/movies', kf.id]" matTooltip="{{kf.title}}">
-                                <app-poster-image [posterPath]="kf.poster_path" [type]="'known-for'" [elevate]="true"></app-poster-image>
+                                <app-image-viewer [posterPath]="kf.poster_path" [type]="'known-for'" [elevate]="true"></app-image-viewer>
                             </div>
                         </div>
                         

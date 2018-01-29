@@ -38,6 +38,7 @@ import { PeopleDetailComponent } from './components/detail/people-detail.compone
 import { PeopleListComponent } from './components/list/people-list.component';
 import { KnownForComponent } from './components/detail/known-for/known-for.component';
 import { PeopleCreditsComponent } from './components/detail/credits/people-credits.component';
+import { PeopleMediaImagesComponent } from './components/detail/media-images/people-media-images.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { PeopleCreditsComponent } from './components/detail/credits/people-credi
         PeopleListComponent,
         KnownForComponent,
         PeopleCreditsComponent,
+        PeopleMediaImagesComponent,
     ],
     providers: [
         PeopleService

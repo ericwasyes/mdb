@@ -3,7 +3,7 @@
 
     <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="space-around stretch">
         <mat-card *ngFor="let tbc of topBilledCast" class="cast-card selectable-card" [routerLink]="['/people', tbc.id]">
-            <app-poster-image [posterPath]="tbc.profile_path" [type]="'profile'" [card]="true"></app-poster-image>
+            <app-image-viewer [posterPath]="tbc.profile_path" [type]="'profile'" [card]="true"></app-image-viewer>
             <p class="mat-caption name">{{tbc.name}}</p>
             <p class="mat-caption character">{{tbc.character}}</p>
         </mat-card>        

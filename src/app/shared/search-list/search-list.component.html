@@ -1,7 +1,7 @@
 <div *ngFor="let item of searchResult?.results">
     <div fxLayout="row" class="search-result-container">
         <mat-card fxLayout="row" class="search-result-card">
-            <app-poster-image [posterPath]="item.poster_path" [type]="'search-list'"></app-poster-image>
+            <app-image-viewer [posterPath]="item.poster_path" [type]="'search-list'"></app-image-viewer>
             <div fxLayout="column" class="search-result-card-body">
                 <mat-card-header fxLayout="row" fxLayoutAlign="end none">
                     <div fxFlex>

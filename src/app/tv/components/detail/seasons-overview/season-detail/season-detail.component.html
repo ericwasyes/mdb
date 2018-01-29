@@ -1,6 +1,6 @@
 <div fxLayout="row" *ngIf="isLoaded" fxLayout.sm="column" fxLayout.xs="column">
     <div [ngClass.xs]="{'text-center' : true}" [ngClass.sm]="{'text-center' : true}">
-        <app-poster-image [posterPath]="season?.poster_path" [elevate]="true" [type]="search-list"></app-poster-image>
+        <app-image-viewer [posterPath]="season?.poster_path" [elevate]="true" [type]="search-list"></app-image-viewer>
     </div>
     <div class="ml++">
         <p>{{season.overview}}</p>

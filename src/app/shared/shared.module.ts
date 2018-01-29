@@ -24,7 +24,8 @@ import {
     MatChipsModule,
     MatMenuModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
 } from '@angular/material';
 
 // Modules
@@ -37,7 +38,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MenuComponent } from './navbar/menu/menu.component';
 import { MobileMenuComponent } from './navbar/mobile-menu/mobile-menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { PosterImageComponent } from './poster-image/poster-image.component';
+import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchListComponent } from './search-list/search-list.component';
@@ -46,10 +47,11 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { FeaturedCrewComponent } from './item-detail/featured-crew/featured-crew.component';
 import { TopBilledCastComponent } from './item-detail/top-billed-cast/top-billed-cast.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { DiscoverComponent } from './discover/discover.component';
+import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
 // Pipes
 import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
-import { DiscoverComponent } from './discover/discover.component';
 
 @NgModule({
     imports: [
@@ -72,6 +74,7 @@ import { DiscoverComponent } from './discover/discover.component';
         RoundProgressModule,
         MatGridListModule,
         MatSelectModule,
+        MatDialogModule,
         DragScrollModule,
         RouterModule
     ],
@@ -80,7 +83,7 @@ import { DiscoverComponent } from './discover/discover.component';
         SearchbarComponent,
         NavbarComponent,
         FooterComponent,
-        PosterImageComponent,
+        ImageViewerComponent,
         VideoPlayerComponent,
         PageNotFoundComponent,
         SearchListComponent,
@@ -95,7 +98,7 @@ import { DiscoverComponent } from './discover/discover.component';
         MenuComponent,
         MobileMenuComponent,
         FooterComponent,
-        PosterImageComponent,
+        ImageViewerComponent,
         VideoPlayerComponent,
         PageNotFoundComponent,
         SearchListComponent,
@@ -104,7 +107,11 @@ import { DiscoverComponent } from './discover/discover.component';
         FeaturedCrewComponent,
         TopBilledCastComponent,
         BreadcrumbsComponent,
-        DiscoverComponent
+        DiscoverComponent,
+        ImageDialogComponent
+    ],
+    entryComponents: [
+        ImageDialogComponent,
     ],
     providers: [],
 })

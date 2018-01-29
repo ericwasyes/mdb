@@ -1,6 +1,6 @@
 <mat-list fxFlex>
     <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let c of cast">
-        <app-poster-image [posterPath]="c.profile_path" type="avatar"></app-poster-image>
+        <app-image-viewer [posterPath]="c.profile_path" type="avatar"></app-image-viewer>
         <mat-list-item fxFlex>
             <h4 mat-line>{{c.name}}</h4>
             <p mat-line> {{c.character}} </p>

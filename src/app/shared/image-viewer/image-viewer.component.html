@@ -1,0 +1,7 @@
+<img *ngIf="pathIsReady" class="{{type}}" (click)="openDialog()" [ngClass]="{
+                'mat-card-image' : card, 
+                'known-for' : type == 'known-for',
+                'mat-elevation-z4' : elevate, 
+                'avatar-img' : type == 'avatar', 
+                'list' : type == 'search-list'
+            }" src="{{fullPath}}">

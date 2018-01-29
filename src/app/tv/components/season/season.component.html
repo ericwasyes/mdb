@@ -24,7 +24,7 @@
     <!-- Season Overview -->
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="mb+">
         <div [ngClass.xs]="{'text-center' : true}" [ngClass.sm]="{'text-center' : true}">
-            <app-poster-image [posterPath]="season.poster_path" [elevate]="true" [type]="search-list"></app-poster-image>
+            <app-image-viewer [posterPath]="season.poster_path" [elevate]="true" [type]="search-list"></app-image-viewer>
         </div>
         <div class="ml++">
             <h2 class="mat-headline">Season {{seasonNumber}}
@@ -38,17 +38,16 @@
     </div>
 
     <mat-tab-group dynamicHeight="true" mat-stretch-tabs>
-            <mat-tab label="Episodes">
-                <!-- Episodes -->
-                <div *ngFor="let episode of season.episodes">
-                    <app-episode [episode]="episode"></app-episode>
-                </div>
-            </mat-tab>
-            <mat-tab label="Season Regulars">
-                <app-season-cast *ngIf="credits" [cast]="credits.cast"></app-season-cast>
-            </mat-tab>
-            <mat-tab label="Crew Members">
-                <app-season-crew *ngIf="credits" [crew]="credits.crew"></app-season-crew>
-            </mat-tab>
-        </mat-tab-group>
+        <mat-tab label="Episodes ({{season.episodes.length}})">
+            <div *ngFor="let episode of season.episodes">
+                <app-episode [episode]="episode"></app-episode>
+            </div>
+        </mat-tab>
+        <mat-tab label="Season Regulars">
+            <app-season-cast *ngIf="credits" [cast]="credits.cast"></app-season-cast>
+        </mat-tab>
+        <mat-tab label="Crew Members">
+            <app-season-crew *ngIf="credits" [crew]="credits.crew"></app-season-crew>
+        </mat-tab>
+    </mat-tab-group>
 </div>

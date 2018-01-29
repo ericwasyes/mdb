@@ -1,0 +1,9 @@
+<div class="dialog-container" fxLayout="row" fxLayoutAlign="center center">
+    <button mat-icon-button (click)="previous()" [disabled]="disablePrevious">
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <img src="{{imageInView}}">
+    <button mat-icon-button (click)="next()" [disabled]="disableNext">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>
