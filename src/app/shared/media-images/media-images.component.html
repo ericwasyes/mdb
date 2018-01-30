@@ -1,0 +1,30 @@
+<div class="p+ mat-typography">
+
+    <div fxLayout="row" fxLayoutAlign="end center">
+
+        <button mat-button [matMenuTriggerFor]="menu" class="mb+">
+            {{mediaType}}<mat-icon>arrow_drop_down</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item
+                *ngFor="let type of imageTypes"  
+                [ngClass]="{'selected-menu-item' : type.name == mediaType}" 
+                (click)="selectMediaType(type.name)">
+                    {{type.name}}
+            </button>
+        </mat-menu>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="mediaType == 'Posters'">
+        <mat-card *ngFor="let poster of images?.posters" class="m+ p0 selectable-card">
+            <app-image-viewer [images]="images.posters" [posterPath]="poster.file_path" [type]="'search-list'" [dialog]="true"></app-image-viewer>
+        </mat-card>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="mediaType == 'Backdrops'">
+        <mat-card *ngFor="let bd of images?.backdrops" class="m+ p0 selectable-card">
+            <app-image-viewer [images]="images.backdrops" [posterPath]="bd.file_path" [type]="'backdrop'" [dialog]="true"></app-image-viewer>
+        </mat-card>
+    </div>
+</div>

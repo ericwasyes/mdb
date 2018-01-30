@@ -1,10 +1,22 @@
 <div class="mat-typography p+" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-    <button mat-button [matMenuTriggerFor]="menu">
-        {{title}}<mat-icon>arrow_drop_down</mat-icon>
-    </button>
-
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <h2 class="mat-title m0">
+            Featured Movies
+        </h2>
+        
+        <button mat-button [matMenuTriggerFor]="menu">
+            {{title}}<mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </div>
+    
     <mat-menu #menu="matMenu">
-        <button *ngFor="let item of menuItems" mat-menu-item (click)="selectMovieFilter(item.name)">{{item.name}}</button>
+        <button *ngFor="let item of menuItems" mat-menu-item (click)="resetMovieFilter(item.name)">{{item.name}}</button>
     </mat-menu>
     <app-featured-list *ngIf="showList" [type]="'/movies'" [items]="movies"></app-featured-list>
+
+    <mat-paginator *ngIf="movies" 
+        [length]="movies?.total_results" 
+        [pageSize]="20" 
+        (page)="pageEvent = onPaginationChanged($event)">
+    </mat-paginator>
 </div>

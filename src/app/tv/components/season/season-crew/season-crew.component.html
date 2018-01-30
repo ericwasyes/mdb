@@ -1,7 +1,7 @@
 <div *ngIf="groupedCrew" fxLayout="column" fxFlex>
     <mat-list *ngFor="let group of groupedCrew">
         <h3 mat-subheader>{{group[0].department}}</h3>
-        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let crew of group">
+        <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let crew of group" [routerLink]="['/people', crew.id]" class="selectable-list">
             <app-image-viewer [posterPath]="crew.profile_path" type="avatar"></app-image-viewer>
             <mat-list-item fxFlex>
                 <h4 mat-line>{{crew.name}}</h4>

@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { TvService } from '../../../services/tv/tv.service';
 import { isObject } from 'lodash'
+import { PageEvent } from '@angular/material';
 
 @Component({
     selector: 'app-tv-featured',
@@ -22,6 +23,7 @@ export class TvFeaturedComponent implements OnInit {
     menuItems: any[];
     type: string;
     showList: boolean;
+    private page: number;
 
     constructor(
         private route: ActivatedRoute,
@@ -66,6 +68,11 @@ export class TvFeaturedComponent implements OnInit {
             });
     }
 
+    resetTvFilter(name: string): void {
+        this.page = 1;
+        this.selectTvFilter(name);
+    }
+
     selectTvFilter(name: string): void {
         return name === 'Popular' ? this.getPopularTvShows() :
             name === 'Top Rated' ? this.getTopRatedTvShows() :
@@ -78,10 +85,10 @@ export class TvFeaturedComponent implements OnInit {
     }
 
     getPopularTvShows(): void {
-        this.tvService.getPopular()
+        this.tvService.getPopular(this.page)
             .subscribe(results => {
                 this.tvShows = results;
-                this.title = 'Popular TV Shows'
+                this.title = 'Popular'
                 this.tvShows.results.forEach(result => {
                     result.genre_names = this.getGenreNames(result.genre_ids);
                 })
@@ -89,10 +96,10 @@ export class TvFeaturedComponent implements OnInit {
     }
 
     getTopRatedTvShows(): void {
-        this.tvService.getTopRated()
+        this.tvService.getTopRated(this.page)
             .subscribe(results => {
                 this.tvShows = results;
-                this.title = 'Top Rated TV Shows'
+                this.title = 'Top Rated'
                 this.tvShows.results.forEach(result => {
                     result.genre_names = this.getGenreNames(result.genre_ids);
                 })
@@ -100,7 +107,7 @@ export class TvFeaturedComponent implements OnInit {
     }
 
     getCurrentlyAiringTvShows(): void {
-        this.tvService.getCurrentlyAiring()
+        this.tvService.getCurrentlyAiring(this.page)
             .subscribe(results => {
                 this.tvShows = results;
                 this.title = 'On TV';
@@ -111,7 +118,7 @@ export class TvFeaturedComponent implements OnInit {
     }
 
     getTvShowsAiringToday(): void {
-        this.tvService.getAiringToday()
+        this.tvService.getAiringToday(this.page)
             .subscribe(results => {
                 this.tvShows = results;
                 this.title = 'Airing Today'
@@ -133,5 +140,8 @@ export class TvFeaturedComponent implements OnInit {
         return genreNames;
     }
 
-
+    onPaginationChanged(event?:PageEvent): void {
+        this.page = event.pageIndex + 1;
+        this.selectTvFilter(this.title);
+    }
 }

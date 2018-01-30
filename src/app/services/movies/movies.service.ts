@@ -14,20 +14,42 @@ export class MoviesService {
 
     constructor(private http: HttpClient) { }
     
-    getPopular(): Observable<any> {
-        return this.http.get<ListResponse>(this.baseUrl + 'popular');
+    setPageNumber(page: number): HttpParams {
+        if (page === undefined || page === null) {
+            page = 1;
+        }
+
+        let myParams = new HttpParams();
+        myParams = myParams.append('page', page.toString());
+
+        return myParams;
     }
 
-    getTopRated(): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'top_rated');
+    getPopular(page?: number): Observable<any> {
+        if (page !== undefined) {
+            this.setPageNumber
+        }
+        return this.http.get<ListResponse>(this.baseUrl + 'popular', {
+            params: this.setPageNumber(page)
+        });
     }
 
-    getUpcoming(): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'upcoming');
+    getTopRated(page?: number): Observable<ListResponse> {    
+        return this.http.get<ListResponse>(this.baseUrl + 'top_rated', {
+            params: this.setPageNumber(page)
+        });
     }
 
-    getNowPlaying(): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'now_playing');
+    getUpcoming(page?: number): Observable<ListResponse> {
+        return this.http.get<ListResponse>(this.baseUrl + 'upcoming', {
+            params: this.setPageNumber(page)
+        });
+    }
+
+    getNowPlaying(page?: number): Observable<ListResponse> {
+        return this.http.get<ListResponse>(this.baseUrl + 'now_playing', {
+            params: this.setPageNumber(page)
+        });
     }
 
     getDetails(id: number): Observable<Details> {     

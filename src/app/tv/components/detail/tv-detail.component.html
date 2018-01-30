@@ -14,22 +14,17 @@
                 </ng-template>
                 <app-seasons-overview *ngIf="details" [tvId]="details.id" [seasons]="details.seasons"></app-seasons-overview>
             </mat-tab>
-            <!-- <mat-tab label="Full Cast & Crew">
-                <full-cast-and-crew *ngIf="credits" [credits]="credits"></full-cast-and-crew>
-            </mat-tab> -->
-            <mat-tab label="Technical Details">
-                <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
-            </mat-tab>
-            <!-- <mat-tab label="Reviews">
-                <reviews [movieId]="movieId"></reviews>
-            </mat-tab>
             <mat-tab label="Images">
                 <ng-template mat-tab-label>
                     Images ({{images?.backdrops.length + images?.posters.length}})
                 </ng-template>
-                <media-images [images]="images"></media-images>
+                <app-media-images [images]="images"></app-media-images>
             </mat-tab>
-            <mat-tab>
+            <mat-tab label="Technical Details">
+                <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
+            </mat-tab>
+            
+            <!-- <mat-tab>
                 <ng-template mat-tab-label>
                     Videos ({{videos?.results.length}})
                 </ng-template>

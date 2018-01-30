@@ -65,6 +65,10 @@ a {
         &:last-child {
             padding-bottom: 0;
         }
+        &:hover {
+            background-color: #E0E0E0;
+            cursor: pointer;
+        }
     }
 
     /*----- TIMELINE INFO -----*/
@@ -110,6 +114,7 @@ a {
     }
     .timeline-item:not(.period):hover .timeline-marker:before {
         background: transparent;
+        cursor: pointer;
         // border: 3px solid $primary-color;
     }
 

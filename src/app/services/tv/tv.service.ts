@@ -13,20 +13,39 @@ export class TvService {
 
     constructor(private http: HttpClient) { }
 
-    getPopular(): Observable<any> {
-        return this.http.get<ListResponse>(this.baseUrl + 'popular');
+    setPageNumber(page: number): HttpParams {
+        if (page === undefined || page === null) {
+            page = 1;
+        }
+
+        let myParams = new HttpParams();
+        myParams = myParams.append('page', page.toString());
+
+        return myParams;
     }
 
-    getTopRated(): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'top_rated');
+    getPopular(page?: number): Observable<any> {
+        return this.http.get<ListResponse>(this.baseUrl + 'popular', {
+            params: this.setPageNumber(page)
+        });
     }
 
-    getCurrentlyAiring(): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'on_the_air');
+    getTopRated(page?: number): Observable<ListResponse> {
+        return this.http.get<ListResponse>(this.baseUrl + 'top_rated', {
+            params: this.setPageNumber(page)
+        });
     }
 
-    getAiringToday(): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'airing_today');
+    getCurrentlyAiring(page?: number): Observable<ListResponse> {
+        return this.http.get<ListResponse>(this.baseUrl + 'on_the_air', {
+            params: this.setPageNumber(page)
+        });
+    }
+
+    getAiringToday(page?: number): Observable<ListResponse> {
+        return this.http.get<ListResponse>(this.baseUrl + 'airing_today', {
+            params: this.setPageNumber(page)
+        });
     }
 
     getDetails(id: number): Observable<TvDetails> {      

@@ -47,6 +47,5 @@ export class MoviesListComponent implements OnInit {
     onPaginationChanged(event?:PageEvent): void {
         this.searchParams.page = event.pageIndex + 1;
         this.search();
-
     }
 }

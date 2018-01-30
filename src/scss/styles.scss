@@ -29,15 +29,21 @@ h1 {
     text-align: center;
 }
 
+.selectable-list {
+    &:hover {
+        cursor: pointer;
+        background-color: #E0E0E0;
+    }
+}
+
 .selectable-card {
     -webkit-transition: all 0.2s !important;
     transition: all 0.3s !important;
-}
-
-.selectable-card:hover {
-    cursor: pointer;
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    &:hover {
+        cursor: pointer;
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
 }
 
 .selected-menu-item {

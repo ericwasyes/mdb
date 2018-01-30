@@ -18,7 +18,7 @@
                 <mat-tab label="Filmography">
                     <div class="m+">
                         <mat-accordion>
-                            <mat-expansion-panel>
+                            <mat-expansion-panel *ngIf="movieCredits?.cast.length + tvCredits?.cast.length > 0">
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>
                                         Acting ({{movieCredits?.cast.length + tvCredits?.cast.length}})

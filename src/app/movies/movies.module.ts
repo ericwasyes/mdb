@@ -35,7 +35,6 @@ import {
 import { MoviesListComponent } from './components/list/movies-list.component';
 import { MovieDetailComponent } from './components/detail/movie-detail.component';
 import { TechnicalDetailsComponent } from './components/detail/technical-details/technical-details.component';
-import { MediaImagesComponent } from './components/detail/media-images/media-images.component';
 import { MediaVideosComponent } from './components/detail/media-videos/media-videos.component';
 import { ReviewsComponent } from './components/detail/reviews/reviews.component';
 import { FullCastAndCrewComponent } from './components/detail/full-cast-and-crew/full-cast-and-crew.component';
@@ -73,7 +72,6 @@ import { MoviesFeaturedComponent } from './components/featured/movies-featured.c
         MoviesFeaturedComponent,
         MovieDetailComponent,
         TechnicalDetailsComponent,
-        MediaImagesComponent,
         MediaVideosComponent,
         ReviewsComponent,
         FullCastAndCrewComponent,

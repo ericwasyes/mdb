@@ -7,6 +7,7 @@ import { find } from 'lodash'
 import { GenresResponse } from '../../../models/genres';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
+import { PageEvent } from '@angular/material';
 
 @Component({
     selector: 'app-movies',
@@ -21,6 +22,7 @@ export class MoviesFeaturedComponent implements OnInit {
     menuItems: any[];
     type: string;
     showList: boolean;
+    private page: number;
 
     constructor(
         private route: ActivatedRoute,
@@ -30,7 +32,7 @@ export class MoviesFeaturedComponent implements OnInit {
 
     ngOnInit() {
         this.showList = false;
-
+        this.page = 1;
         this.menuItems = [
             {
                 name: 'Popular'
@@ -59,6 +61,11 @@ export class MoviesFeaturedComponent implements OnInit {
             });
     }
 
+    resetMovieFilter(name: string): void {
+        this.page = 1;
+        this.selectMovieFilter(name);
+    }
+    
     selectMovieFilter(name: string): void {
         return name === 'Popular' ? this.getPopularMovies() :
             name === 'Top Rated' ? this.getTopRatedMovies() :
@@ -71,10 +78,10 @@ export class MoviesFeaturedComponent implements OnInit {
     }
 
     getPopularMovies(): void {
-        this.moviesService.getPopular()
+        this.moviesService.getPopular(this.page)
             .subscribe(results => {
                 this.movies = results;
-                this.title = 'Popular Movies'
+                this.title = 'Popular'
                 this.movies.results.forEach(result => {
                     result.genre_names = this.getGenreNames(result.genre_ids);
                 })
@@ -82,10 +89,10 @@ export class MoviesFeaturedComponent implements OnInit {
     }
 
     getTopRatedMovies(): void {
-        this.moviesService.getTopRated()
+        this.moviesService.getTopRated(this.page)
             .subscribe(results => {
                 this.movies = results;
-                this.title = 'Top Rated Movies'
+                this.title = 'Top Rated'
                 this.movies.results.forEach(result => {
                     result.genre_names = this.getGenreNames(result.genre_ids);
                 })
@@ -93,10 +100,10 @@ export class MoviesFeaturedComponent implements OnInit {
     }
 
     getUpcomingReleases(): void {
-        this.moviesService.getUpcoming()
+        this.moviesService.getUpcoming(this.page)
             .subscribe(results => {
                 this.movies = results;
-                this.title = 'Upcoming Releases';
+                this.title = 'Upcoming';
                 this.movies.results.forEach(result => {
                     result.genre_names = this.getGenreNames(result.genre_ids);
                 })
@@ -104,7 +111,7 @@ export class MoviesFeaturedComponent implements OnInit {
     }
 
     getNowPlaying(): void {
-        this.moviesService.getNowPlaying()
+        this.moviesService.getNowPlaying(this.page)
             .subscribe(results => {
                 this.movies = results;
                 this.title = 'Now Playing'
@@ -124,5 +131,9 @@ export class MoviesFeaturedComponent implements OnInit {
         return genreNames;
     }
 
+    onPaginationChanged(event?:PageEvent): void {
+        this.page = event.pageIndex + 1;
+        this.selectMovieFilter(this.title);
+    }
 
 }

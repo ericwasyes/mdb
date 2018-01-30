@@ -35,7 +35,7 @@
         <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
             <mat-list fxFlex>
                 <h3 mat-subheader>Guest Stars</h3>
-                <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let cast of episode.guest_stars">
+                <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let cast of episode.guest_stars" [routerLink]="['/people', cast.id]" class="selectable-list">
                     <app-image-viewer [posterPath]="cast.profile_path" type="avatar"></app-image-viewer>
                     <mat-list-item fxFlex>
                         <h4 mat-line>{{cast.name}}</h4>
@@ -48,7 +48,7 @@
             <div fxLayout="column" fxFlex>
                 <mat-list fxFlex>
                     <h3 mat-subheader>Crew</h3>
-                    <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let crew of episode.crew">
+                    <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let crew of episode.crew" [routerLink]="['/people', crew.id]" class="selectable-list">
                         <app-image-viewer [posterPath]="crew.profile_path" type="avatar"></app-image-viewer>
                         <mat-list-item fxFlex>
                             <h4 mat-line>{{crew.name}}</h4>

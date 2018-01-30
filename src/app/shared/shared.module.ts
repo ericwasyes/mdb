@@ -49,6 +49,7 @@ import { TopBilledCastComponent } from './item-detail/top-billed-cast/top-billed
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
+import { MediaImagesComponent } from './media-images/media-images.component';
 
 // Pipes
 import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
@@ -89,7 +90,8 @@ import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
         SearchListComponent,
         FeaturedListComponent,
         ItemDetailComponent,
-        BreadcrumbsComponent
+        BreadcrumbsComponent,
+        MediaImagesComponent
     ],
     declarations: [
         TruncateTextPipe,
@@ -108,7 +110,8 @@ import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
         TopBilledCastComponent,
         BreadcrumbsComponent,
         DiscoverComponent,
-        ImageDialogComponent
+        ImageDialogComponent,
+        MediaImagesComponent
     ],
     entryComponents: [
         ImageDialogComponent,

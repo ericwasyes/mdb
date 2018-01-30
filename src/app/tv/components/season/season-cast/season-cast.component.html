@@ -1,5 +1,5 @@
 <mat-list fxFlex>
-    <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let c of cast">
+    <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let c of cast" [routerLink]="['/people', c.id]" class="selectable-list">
         <app-image-viewer [posterPath]="c.profile_path" type="avatar"></app-image-viewer>
         <mat-list-item fxFlex>
             <h4 mat-line>{{c.name}}</h4>
