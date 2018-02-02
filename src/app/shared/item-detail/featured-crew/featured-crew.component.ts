@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Crew } from '../../../models/crew';
+import {  } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'app-featured-crew',
-    templateUrl: 'featured-crew.component.html',
+    templateUrl: 'featured-crew.component.html'
 })
 
 export class FeaturedCrewComponent implements OnInit {
@@ -15,6 +16,13 @@ export class FeaturedCrewComponent implements OnInit {
     writers: Crew[];
 
     constructor() { }
+
+    ngOnChanges(changes: SimpleChanges) {
+        this.crew = changes.crew !== undefined ? changes.crew.currentValue : this.crew;
+        this.creators = changes.creators !== undefined ? changes.creators.currentValue : this.creators;
+
+        this.getFeaturedCrew();
+    }
 
     ngOnInit() {
         this.getFeaturedCrew();

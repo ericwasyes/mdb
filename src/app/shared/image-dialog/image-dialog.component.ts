@@ -10,7 +10,11 @@ export enum KEY_CODE {
     selector: 'app-image-dialog',
     templateUrl: 'image-dialog.component.html',
     styles: [`
+        .mat-dialog-container {
+            background: transparent;
+        }
         .dialog-container {
+            background: transparent;
             height: 100%;   
         }   
         img {

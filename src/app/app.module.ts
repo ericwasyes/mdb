@@ -46,6 +46,7 @@ import { GenresService } from './services/genres/genres.service';
 import { TvSeasonsService } from './services/tvSeasons/tv-seasons.service';
 import { TvService } from './services/tv/tv.service';
 import { TieInterceptor } from './http-interceptor';
+import { CollectionsService } from './services/collections/collections.service';
 
 @NgModule({
     declarations: [
@@ -88,6 +89,7 @@ import { TieInterceptor } from './http-interceptor';
         GenresService,
         TvService,
         TvSeasonsService,
+        CollectionsService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TieInterceptor,

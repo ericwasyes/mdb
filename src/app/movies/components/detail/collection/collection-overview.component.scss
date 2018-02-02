@@ -1,0 +1,23 @@
+.collection-container {
+    overflow: hidden;
+
+    .collection {
+        background-size: cover;
+        background-position: 50% 50%;
+        height: 320px;
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
+        transform: scale(1.03);
+    }
+    
+    .collection-inner {
+        position: relative;
+        margin-top: -320px;
+        height: 320px;
+        text-align: center;
+        color: #fff;
+    }
+}

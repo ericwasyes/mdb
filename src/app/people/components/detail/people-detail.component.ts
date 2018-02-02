@@ -65,8 +65,6 @@ export class PeopleDetailComponent implements OnInit {
                 this.movieCredits = credits;
                 let groups = this.groupByDepartment(this.movieCredits.crew);
                 this.groupedMovieCrew = Object.keys(groups).map(key => groups[key]);
-
-                console.log(this.groupedMovieCrew);
             });
     }
 

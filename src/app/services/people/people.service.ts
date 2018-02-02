@@ -9,19 +9,19 @@ export class PeopleService {
     
     private baseUrl = 'https://api.themoviedb.org/3/person/';
 
-    getDetails(id): Observable<PeopleDetails> {
+    getDetails(id: number): Observable<PeopleDetails> {
         return this.http.get<PeopleDetails>(this.baseUrl + id);
     }
 
-    getMovieCredits(id): Observable<any> {
+    getMovieCredits(id: number): Observable<any> {
         return this.http.get<any>(this.baseUrl + id + '/movie_credits');
     }
 
-    getTvCredits(id): Observable<any> {
+    getTvCredits(id: number): Observable<any> {
         return this.http.get<any>(this.baseUrl + id + '/tv_credits');
     }
 
-    getImages(id): Observable<any> {
+    getImages(id: number): Observable<any> {
         return this.http.get<any>(this.baseUrl + id + '/images');
     }
 }

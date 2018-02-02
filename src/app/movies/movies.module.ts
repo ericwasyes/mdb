@@ -24,7 +24,9 @@ import {
     MatChipsModule,
     MatMenuModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule,
+    MatTooltipModule
  } from '@angular/material';
 
  // Modules
@@ -40,6 +42,7 @@ import { ReviewsComponent } from './components/detail/reviews/reviews.component'
 import { FullCastAndCrewComponent } from './components/detail/full-cast-and-crew/full-cast-and-crew.component';
 import { MoviesComponent } from './movies.component';
 import { MoviesFeaturedComponent } from './components/featured/movies-featured.component';
+import { CollectionOverviewComponent } from './components/detail/collection/collection-overview.component';
 
 @NgModule({
     imports: [
@@ -62,9 +65,11 @@ import { MoviesFeaturedComponent } from './components/featured/movies-featured.c
         RoundProgressModule,
         MatGridListModule,
         MatSelectModule,
+        MatCheckboxModule,
         DragScrollModule,
         AppRoutingModule,
-        SharedModule
+        SharedModule,
+        MatTooltipModule
     ],
     exports: [],
     declarations: [
@@ -75,7 +80,8 @@ import { MoviesFeaturedComponent } from './components/featured/movies-featured.c
         MediaVideosComponent,
         ReviewsComponent,
         FullCastAndCrewComponent,
-        MoviesComponent
+        MoviesComponent,
+        CollectionOverviewComponent
     ],
     providers: [],
 })

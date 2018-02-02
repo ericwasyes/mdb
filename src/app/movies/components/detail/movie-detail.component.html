@@ -1,37 +1,37 @@
-<div class="mb+ p+">
-    <div class="movie-detail">
-        <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-            <button mat-button class="mb+" (click)="navigateBack()">
-                <mat-icon>arrow_back</mat-icon>
-                Back
-            </button>      
-            <app-item-detail *ngIf="details && credits" [type]="'movies'" [details]="details" [credits]="credits" [voteColor]="voteColor"></app-item-detail>
-        </div>
+<div class="movie-detail">
+    <div class="pv+" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+        <app-breadcrumbs></app-breadcrumbs> 
+        <app-item-detail *ngIf="details && credits" [type]="'movies'" [details]="details" [credits]="credits" [voteColor]="voteColor"></app-item-detail>
     </div>
-    
-    <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-        <mat-tab-group dynamicHeight="true" mat-stretch-tabs>
-            <mat-tab label="Full Cast & Crew">
-                <app-full-cast-and-crew *ngIf="credits" [credits]="credits"></app-full-cast-and-crew>
-            </mat-tab>
-            <mat-tab label="Technical Details">
-                <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
-            </mat-tab>
-            <mat-tab label="Reviews">
-                <app-reviews [movieId]="movieId"></app-reviews>
-            </mat-tab>
-            <mat-tab label="Images">
-                <ng-template mat-tab-label>
-                    Images ({{images?.backdrops.length + images?.posters.length}})
-                </ng-template>
-                <app-media-images [images]="images"></app-media-images>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label>
-                    Videos ({{videos?.results.length}})
-                </ng-template>
-                <app-media-videos [videos]="videos"></app-media-videos>
-            </mat-tab>
-        </mat-tab-group>
-    </div>
+</div>
+
+<app-collection-overview *ngIf="details?.belongs_to_collection" [collection]="details?.belongs_to_collection"></app-collection-overview>
+
+<div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+    <mat-tab-group dynamicHeight="true" mat-stretch-tabs>
+        <mat-tab label="Full Cast & Crew">
+            <app-full-cast-and-crew *ngIf="credits" [credits]="credits"></app-full-cast-and-crew>
+        </mat-tab>
+        <mat-tab label="Technical Details">
+            <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
+        </mat-tab>
+        <mat-tab label="Reviews">
+            <app-reviews [movieId]="movieId"></app-reviews>
+        </mat-tab>
+        <mat-tab label="Images">
+            <ng-template mat-tab-label>
+                Images ({{images?.backdrops.length + images?.posters.length}})
+            </ng-template>
+            <app-media-images [images]="images"></app-media-images>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                Videos ({{videos?.results.length}})
+            </ng-template>
+            <app-media-videos [videos]="videos"></app-media-videos>
+        </mat-tab>
+    </mat-tab-group>
+
+    <app-recommendations [recommendations]="recommendations" [type]="'movies'"></app-recommendations>
+
 </div>

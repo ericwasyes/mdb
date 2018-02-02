@@ -71,4 +71,8 @@ export class MoviesService {
     getVideos(id: number): Observable<VideosResponse> {
         return this.http.get<VideosResponse>(this.baseUrl + id + '/videos');
     }
+
+    getRecommendations(id: number): Observable<ListResponse> {
+        return this.http.get<ListResponse>(this.baseUrl + id + '/recommendations')
+    }
 }

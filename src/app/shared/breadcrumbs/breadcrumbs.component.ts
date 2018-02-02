@@ -28,7 +28,6 @@ export class BreadcrumbsComponent implements OnInit {
 
     ngOnInit() { 
         this.crumbs = this.activatedRoute.pathFromRoot;
-        console.log(this.crumbs);
     }
 
     navigateBack(): void {

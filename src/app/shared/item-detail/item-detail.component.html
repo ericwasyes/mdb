@@ -39,6 +39,6 @@
         <span class="mat-body-1">{{details.overview}}</span>
 
         <app-featured-crew *ngIf="credits" [type]="type" [creators]="details.created_by" [crew]="credits.crew"></app-featured-crew>
-        <app-top-billed-cast [topBilledCast]="topBilledCast"></app-top-billed-cast>
+        <app-top-billed-cast *ngIf="credits" [topBilledCast]="topBilledCast"></app-top-billed-cast>
     </div>
 </div>

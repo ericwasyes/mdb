@@ -1,35 +1,26 @@
-<div class="mb+ p+">
-    <div class="movie-detail">
-        <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-            <app-breadcrumbs></app-breadcrumbs>
-            <app-item-detail *ngIf="details && credits" [type]="'tv'" [details]="details" [credits]="credits" [voteColor]="voteColor"></app-item-detail>
-        </div>
+<div class="movie-detail">
+    <div class="pv+" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+        <app-breadcrumbs></app-breadcrumbs>
+        <app-item-detail *ngIf="details && credits" [type]="'tv'" [details]="details" [credits]="credits" [voteColor]="voteColor"></app-item-detail>
     </div>
+</div>
 
-    <div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-        <mat-tab-group dynamicHeight="true" mat-stretch-tabs>
-            <mat-tab>
-                <ng-template mat-tab-label>
-                    Seasons ({{details?.seasons.length}})
-                </ng-template>
-                <app-seasons-overview *ngIf="details" [tvId]="details.id" [seasons]="details.seasons"></app-seasons-overview>
-            </mat-tab>
-            <mat-tab label="Images">
-                <ng-template mat-tab-label>
-                    Images ({{images?.backdrops.length + images?.posters.length}})
-                </ng-template>
-                <app-media-images [images]="images"></app-media-images>
-            </mat-tab>
-            <mat-tab label="Technical Details">
-                <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
-            </mat-tab>
-            
-            <!-- <mat-tab>
-                <ng-template mat-tab-label>
-                    Videos ({{videos?.results.length}})
-                </ng-template>
-                <media-videos [videos]="videos"></media-videos>
-            </mat-tab> -->
-        </mat-tab-group>
-    </div>
+<div [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+    <mat-tab-group dynamicHeight="true" mat-stretch-tabs>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                Seasons ({{details?.seasons.length}})
+            </ng-template>
+            <app-seasons-overview *ngIf="details" [tvId]="details.id" [seasons]="details.seasons"></app-seasons-overview>
+        </mat-tab>
+        <mat-tab label="Images">
+            <ng-template mat-tab-label>
+                Images ({{images?.backdrops.length + images?.posters.length}})
+            </ng-template>
+            <app-media-images [images]="images"></app-media-images>
+        </mat-tab>
+        <mat-tab label="Technical Details">
+            <app-technical-details *ngIf="details" [details]="details"></app-technical-details>
+        </mat-tab>
+    </mat-tab-group>
 </div>

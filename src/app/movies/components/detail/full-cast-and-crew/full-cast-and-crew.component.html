@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-    <mat-list fxFlex>
+    <mat-list fxFlex="50">
         <h3 mat-subheader>Cast</h3>
         <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let cast of credits.cast" [routerLink]="['/people', cast.id]" class="selectable-list">
             <app-image-viewer [posterPath]="cast.profile_path" type="avatar"></app-image-viewer>
@@ -11,7 +11,7 @@
 
     </mat-list>
 
-    <div *ngIf="groupedCrew" fxLayout="column" fxFlex>
+    <div *ngIf="groupedCrew" fxLayout="column" fxFlex="50">
         <mat-list *ngFor="let group of groupedCrew">
             <h3 mat-subheader>{{group[0].department}}</h3>
             <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let crew of group" [routerLink]="['/people', crew.id]" class="selectable-list">

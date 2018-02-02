@@ -1,0 +1,16 @@
+<div class="p+">
+    <h3 class="mat-subheading-2">People who liked this also liked...</h3>
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+        <div *ngFor="let c of recommendations?.results | slice:0:8; let i=index" 
+            class="m+ p0 selectable-card" 
+            matTooltip="{{c.title}}" 
+            [routerLink]="['/movies', c.id]">
+            <app-image-viewer 
+                [posterPath]="c.poster_path" 
+                [type]="'known-for'" 
+                [dialog]="false" 
+                [elevate]="true">
+            </app-image-viewer>
+        </div>
+    </div>
+</div>

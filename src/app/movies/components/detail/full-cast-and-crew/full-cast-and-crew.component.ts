@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Credits } from '../../../../models/credits';
 import { Observable} from 'rxjs/Observable';
 import { groupBy, sortBy, Dictionary } from 'lodash'
@@ -14,6 +14,12 @@ export class FullCastAndCrewComponent implements OnInit {
     groupedCrew: any;
 
     constructor() { }
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.credits !== undefined) {
+            this.ngOnInit();
+        }
+    }
 
     ngOnInit() {
         let groups = this.groupByDepartment(this.credits.crew);

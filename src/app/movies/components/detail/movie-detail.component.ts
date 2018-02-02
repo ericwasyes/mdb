@@ -11,6 +11,7 @@ import 'rxjs/add/operator/pairwise';
 import { Location } from '@angular/common';
 import { Cast } from '../../../models/cast';
 import { Title } from '@angular/platform-browser';
+import { ListResponse } from '../../../models/ListResponse';
 
 @Component({
     selector: 'app-movie-detail',
@@ -25,6 +26,7 @@ export class MovieDetailComponent implements OnInit {
     credits: Credits;
     images: ImagesResponse;
     videos: VideosResponse;
+    recommendations: ListResponse;
     topBilledCast: Cast[];
     voteColor: string;
 
@@ -44,6 +46,7 @@ export class MovieDetailComponent implements OnInit {
                 this.getCredits();
                 this.getImages();
                 this.getVideos();
+                this.getRecommendations();
             });        
     }
 
@@ -74,6 +77,11 @@ export class MovieDetailComponent implements OnInit {
                 this.videos = videos;
             })
     }  
+
+    getRecommendations(): void {
+        this.moviesService.getRecommendations(this.movieId)
+            .subscribe(recommendations => this.recommendations = recommendations);
+    }
 
     setRatingColor(rating): string {
         if (rating >= 9) {

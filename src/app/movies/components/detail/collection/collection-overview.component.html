@@ -1,0 +1,22 @@
+<div class="collection-container">
+    <div class="collection" [ngStyle]="{'background-image': 'url(' + backdropImage + ')'}"></div>
+    <div class="collection-inner" fxLayout="column" fxLayoutAlign="center center">
+        <h2 class="mat-title">Part of the {{collection.name}}</h2>
+    
+        <div fxLayout="row wrap" fxLayoutAlign="center center">
+            <div *ngFor="let c of collectionDetails?.parts" 
+                class="m+ p0 selectable-card" 
+                matTooltip="{{c.title}}" 
+                [routerLink]="['/movies', c.id]">
+                <app-image-viewer 
+                    [posterPath]="c.poster_path" 
+                    [type]="'known-for'" 
+                    [dialog]="false" 
+                    [elevate]="true">
+                </app-image-viewer>
+            </div>
+        </div>
+    
+        <button mat-button>View Collection</button>
+    </div>
+</div>

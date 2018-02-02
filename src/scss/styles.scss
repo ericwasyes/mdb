@@ -8,6 +8,7 @@ body {
     height: 100%;
     background-color: mat-color($mat-grey, 800);
     margin: 0;
+    overflow-x: hidden;
 }
 
 h1 {

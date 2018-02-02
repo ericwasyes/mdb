@@ -109,6 +109,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(
             appRoutes,
             {
+                onSameUrlNavigation: 'reload'
                 // enableTracing: true, // <-- debugging purposes only
             }
         )

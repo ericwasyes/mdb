@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, SimpleChanges, OnChanges } from '@angular/core';
 import { Details } from '../../models/movies/details';
 import { Credits } from '../../models/credits';
 import { Cast } from '../../models/cast';
@@ -18,11 +18,20 @@ export class ItemDetailComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() { 
-        this.topBilledCast = this.credits.cast.slice(0, 5);
+    ngOnChanges(changes: SimpleChanges) {
+        this.details = changes.details !== undefined ? changes.details.currentValue : this.details;
+        this.credits = changes.credits !== undefined ? changes.credits.currentValue : this.credits;
+        
+        this.topBilledCast = this.getTopBilledCast();
     }
 
-    ngAfterViewInit() {}
+    ngOnInit() { 
+        this.topBilledCast = this.getTopBilledCast();
+    }
+
+    getTopBilledCast(): Cast[] {
+        return this.credits.cast.slice(0, 5);
+    }
 
     getOverlayStyle() {
         let isSemi = false;

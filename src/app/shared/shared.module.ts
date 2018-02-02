@@ -25,7 +25,8 @@ import {
     MatMenuModule,
     MatGridListModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
 } from '@angular/material';
 
 // Modules
@@ -50,6 +51,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 import { MediaImagesComponent } from './media-images/media-images.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 // Pipes
 import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
@@ -77,7 +79,8 @@ import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
         MatSelectModule,
         MatDialogModule,
         DragScrollModule,
-        RouterModule
+        RouterModule,
+        MatTooltipModule
     ],
     exports: [
         TruncateTextPipe,
@@ -91,7 +94,8 @@ import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
         FeaturedListComponent,
         ItemDetailComponent,
         BreadcrumbsComponent,
-        MediaImagesComponent
+        MediaImagesComponent,
+        RecommendationsComponent
     ],
     declarations: [
         TruncateTextPipe,
@@ -111,7 +115,8 @@ import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
         BreadcrumbsComponent,
         DiscoverComponent,
         ImageDialogComponent,
-        MediaImagesComponent
+        MediaImagesComponent,
+        RecommendationsComponent
     ],
     entryComponents: [
         ImageDialogComponent,

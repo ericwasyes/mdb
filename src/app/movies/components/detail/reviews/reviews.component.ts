@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
 import { MoviesService } from '../../../../services/movies/movies.service';
 import { ReviewResults } from '../../../../models/reviews';
 
@@ -14,6 +14,14 @@ export class ReviewsComponent implements OnInit {
     showReviews: boolean = false;
 
     constructor(private moviesService: MoviesService) { }
+
+    ngOnChanges(changes: SimpleChanges) {
+        this.showReviews = false;
+        if (changes.movieId !== undefined) {
+            this.movieId = changes.movieId.currentValue;
+            this.getReviews();
+        }  
+    }
 
     ngOnInit() { 
         this.getReviews();
