@@ -81,7 +81,7 @@ import { CollectionOverviewComponent } from './components/detail/collection/coll
         ReviewsComponent,
         FullCastAndCrewComponent,
         MoviesComponent,
-        CollectionOverviewComponent
+        CollectionOverviewComponent,
     ],
     providers: [],
 })

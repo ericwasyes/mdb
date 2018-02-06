@@ -1,6 +1,10 @@
+<app-fixed-header [details]="details" [showFixedHeader]="showFixedHeader" [voteColor]="voteColor" [type]="'movies'"></app-fixed-header>
+
 <div class="movie-detail">
-    <div class="pv+" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-        <app-breadcrumbs></app-breadcrumbs> 
+    <div class="pv+" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}" fixedScroll (scrollPast)="toggleFixedHeader($event)">
+        <div class="mb+">
+            <app-breadcrumbs></app-breadcrumbs> 
+        </div>
         <app-item-detail *ngIf="details && credits" [type]="'movies'" [details]="details" [credits]="credits" [voteColor]="voteColor"></app-item-detail>
     </div>
 </div>

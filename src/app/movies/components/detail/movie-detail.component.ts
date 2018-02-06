@@ -29,6 +29,7 @@ export class MovieDetailComponent implements OnInit {
     recommendations: ListResponse;
     topBilledCast: Cast[];
     voteColor: string;
+    showFixedHeader: boolean;
 
     constructor(
         private route: ActivatedRoute,
@@ -39,6 +40,8 @@ export class MovieDetailComponent implements OnInit {
     ) {}
 
     ngOnInit() { 
+        this.showFixedHeader = false;
+
         this.route.params
             .subscribe(params => {
                 this.movieId = +params['id'];
@@ -97,5 +100,9 @@ export class MovieDetailComponent implements OnInit {
 
     navigateBack(): void {
         this.location.back();
+    }
+
+    toggleFixedHeader(event: boolean): void {
+        this.showFixedHeader = event;
     }
 }

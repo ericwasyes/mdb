@@ -84,7 +84,7 @@ import { SeasonCrewComponent } from './components/season/season-crew/season-crew
         SeasonComponent,
         EpisodeComponent,
         SeasonCastComponent,
-        SeasonCrewComponent
+        SeasonCrewComponent,
     ],
     providers: [
         TvService

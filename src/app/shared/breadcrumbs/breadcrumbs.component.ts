@@ -9,7 +9,7 @@ import 'rxjs/add/operator/mergeMap';
 @Component({
     selector: 'app-breadcrumbs',
     template: `
-        <button mat-button class="mb+" (click)="navigateBack()">
+        <button mat-button (click)="navigateBack()">
             <mat-icon>arrow_back</mat-icon>
             Back
         </button>  

@@ -26,6 +26,7 @@ export class TvDetailComponent implements OnInit {
     videos: VideosResponse;
     topBilledCast: Cast[];
     voteColor: string;
+    showFixedHeader: boolean;
 
     constructor(
         private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class TvDetailComponent implements OnInit {
     ) {}
 
     ngOnInit() { 
+        this.showFixedHeader = false;
         this.route.params
             .subscribe(params => {
                 this.tvId = +params['id'];
@@ -83,5 +85,9 @@ export class TvDetailComponent implements OnInit {
         } else {
             return '#FF3D00';
         }
+    }
+
+    toggleFixedHeader(event: boolean): void {
+        this.showFixedHeader = event;
     }
 }
