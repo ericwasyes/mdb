@@ -56,7 +56,10 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
 // Pipes
 import { TruncateTextPipe } from './../pipes/truncate-text/truncate-text.pipe';
 import { FixedHeaderComponent } from './fixed-header/fixed-header.component';
+
+// Directives
 import { FixedScrollDirective } from '../directives/fixed-scroll/fixed-scroll.directive';
+import { ReadMoreDirective } from '../directives/read-more/read-more.directive';
 
 @NgModule({
     imports: [
@@ -99,7 +102,8 @@ import { FixedScrollDirective } from '../directives/fixed-scroll/fixed-scroll.di
         MediaImagesComponent,
         RecommendationsComponent,
         FixedHeaderComponent,
-        FixedScrollDirective
+        FixedScrollDirective,
+        ReadMoreDirective
     ],
     declarations: [
         TruncateTextPipe,
@@ -122,7 +126,8 @@ import { FixedScrollDirective } from '../directives/fixed-scroll/fixed-scroll.di
         MediaImagesComponent,
         RecommendationsComponent,
         FixedHeaderComponent,
-        FixedScrollDirective
+        FixedScrollDirective,
+        ReadMoreDirective
     ],
     entryComponents: [
         ImageDialogComponent,

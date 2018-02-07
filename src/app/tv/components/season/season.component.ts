@@ -25,6 +25,7 @@ export class SeasonComponent implements OnInit {
     credits: Credits;
     season: Season;
     isLoaded: boolean;
+    showFixedHeader: boolean;
 
     constructor(
         private location: Location, 
@@ -35,6 +36,7 @@ export class SeasonComponent implements OnInit {
         private titleService: Title ) { }
 
     ngOnInit() { 
+        this.showFixedHeader = false;
         this.isLoaded = false;
         this.route.params
             .subscribe(params => {
@@ -104,5 +106,9 @@ export class SeasonComponent implements OnInit {
     updateUrl(): void {
         const url = this.router.createUrlTree(['/tv/' + this.tvId + '/season/' + this.seasonNumber]).toString();
         this.location.go(url);
+    }
+
+    toggleFixedHeader(event: boolean): void {
+        this.showFixedHeader = event;
     }
 }

@@ -1,7 +1,13 @@
+<app-fixed-header [details]="details" [showFixedHeader]="showFixedHeader" [voteColor]="voteColor" [type]="'season'" [seasonNumber]="seasonNumber"></app-fixed-header>
+
+
 <div class="mat-typography p+" *ngIf="isLoaded" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}"
-    [ngClass.xl]="{'fixed-width' : true}">
+    [ngClass.xl]="{'fixed-width' : true}"
+    fixedScroll (scrollPast)="toggleFixedHeader($event)">
     
-    <app-breadcrumbs></app-breadcrumbs>
+    <div class="mb+">
+        <app-breadcrumbs></app-breadcrumbs>
+    </div>
 
     <!-- Season Toolbar -->
     <div fxLayout="row" fxLayoutAlign="space-between center">

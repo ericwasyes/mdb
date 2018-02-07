@@ -1,10 +1,16 @@
 <div *ngIf="showReviews" fxFlex="70" fxFlexOffset="15">
-    <mat-card *ngFor="let review of reviews.results" class="review-card">
+    <mat-card *ngFor="let review of reviews?.results; let i = index" [attr.data-index]="i" class="review-card">
         <div class="subheading">
             {{review.author}}
         </div>
-        <p>
+        <p #textContent1 id="read-more{{i}}">
             {{review.content}}
         </p>
+        <div class="read-more read-more-link">
+            <a read-more [read-more-length]="350" [read-more-element]="textContent1">
+                <span class="less">Collapse</span>
+                <span class="more">Read more</span>
+            </a>
+        </div>
     </mat-card>
 </div>

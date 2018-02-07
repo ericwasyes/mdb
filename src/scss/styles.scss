@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: mat-color($mat-indigo, 500);
+}
+
 h1 {
     font-size: 2rem !important;
     font-weight: 200 !important;
@@ -55,4 +59,11 @@ h1 {
 .image-dialog-backdrop {
     background: rgba(0,0,0,.6) !important;
     opacity: 1 !important;
+}
+
+.more, .less {
+    cursor: pointer;
+}
+.hidden {
+    display: none;
 }

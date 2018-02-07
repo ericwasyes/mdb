@@ -31,6 +31,7 @@ import { Component, OnInit, Input, style, state, animate, transition, trigger } 
 
 export class FixedHeaderComponent implements OnInit {
     @Input() type: string;
+    @Input() seasonNumber: number;
     @Input() details: any;
     @Input() showFixedHeader: boolean;
     @Input() voteColor: string;

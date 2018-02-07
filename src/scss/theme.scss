@@ -30,4 +30,7 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
   @include angular-material-theme($dark-theme);
   background-color: mat-color($mat-grey, 900) !important;
   color: #fff;
+  a {
+      color: mat-color($dark-primary);
+  }
 }

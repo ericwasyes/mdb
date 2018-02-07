@@ -1,7 +1,7 @@
 <div *ngIf="showFixedHeader" [@fadeInOut]>
     <mat-toolbar class="fixed-header mat-elevation-z2" [ngClass]="{'navbar-dark' : theme == 'dark'}">
         <mat-toolbar-row>
-            <div fxLayout="row" fxLayoutGap="16px" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
+            <div fxLayout="row" flexLayoutAlign="start center" fxLayoutGap="16px" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
                 <app-breadcrumbs></app-breadcrumbs> 
 
                 <!-- <app-image-viewer [posterPath]="details.backdrop_path" [type]="'detail'" [elevate]="true"></app-image-viewer> -->
@@ -9,12 +9,13 @@
                 <h3 class="mat-headline">{{details?.title || details?.name}}
                     <span *ngIf="type == 'movies'" class="mat-subheading-1">({{details.release_date | date: 'yyyy'}})</span>
                     <span *ngIf="type == 'tv'" class="mat-subheading-1">({{details.first_air_date | date: 'yyyy'}} - {{details.last_air_date | date: 'yyyy'}})</span>
-                    <span *ngIf="details?.status != 'Released' && details?.status != 'Ended'" class="mat-subheading-1">({{details?.status}})</span>
+                    <span *ngIf="details?.status != 'Released' && details?.status != 'Ended' && type != 'season'" class="mat-subheading-1">({{details?.status}})</span>
+                    <span *ngIf="type == 'season'" class="mat-subheading-1 pl">Season {{seasonNumber}}</span>
                 </h3>  
                 <div class="spacer"></div>
 
-                <div class="progress-wrapper">
-                    <!-- <div class="current" [ngStyle]="getOverlayStyle()">{{ details.vote_average }}/{{ 10 }}</div> -->
+                <div class="progress-wrapper" *ngIf="type != 'season'">
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ details.vote_average }}</div>
                     <round-progress 
                         [current]="details?.vote_average" 
                         [max]="10"

@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+<div class="p+" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
     <mat-list fxFlex="50">
         <h3 mat-subheader>Cast</h3>
         <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let cast of credits.cast" [routerLink]="['/people', cast.id]" class="selectable-list">
