@@ -13,6 +13,7 @@ export class Details {
     original_title: string;
     overview: string;
     popularity: number;
+    poster_path: string;
     production_companies: SubList[];
     production_countries: ProductionCounty[];
     release_date: Date;

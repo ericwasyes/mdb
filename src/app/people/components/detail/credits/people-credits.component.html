@@ -21,7 +21,7 @@
 
                 </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item" [routerLink]="['/' + creditsType, c.id]">
                 <div class="timeline-info">
                     <span>{{c.release_date || c.first_air_date | date : 'MMM dd'}}</span>
                 </div>
@@ -49,6 +49,7 @@
                 </div>
             </li>
             <li 
+                [routerLink]="['/' + creditsType, c.id]"
                 class="timeline-item" 
                 [class.timeline-item-odd]="odd" 
                 [class.timeline-item-even]="even" 

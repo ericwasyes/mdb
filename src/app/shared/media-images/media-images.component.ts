@@ -9,13 +9,13 @@ import { ImagesResponse } from '../../models/images';
 
 export class MediaImagesComponent implements OnInit {
     @Input() images: ImagesResponse;
-    private mediaType: string;
+    public mediaType: string;
 
     constructor(
         private moviesService: MoviesService) { }
 
 
-    private imageTypes = [
+    public imageTypes = [
         {
             name: 'Posters'
         },

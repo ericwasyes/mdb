@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
     @Output() changeThemeEvent = new EventEmitter<string>();
     @Output() searchMovies = new EventEmitter<any>();
 
-    private theme: string;
+    public theme: string;
     constructor() { }
 
     ngOnInit() { }

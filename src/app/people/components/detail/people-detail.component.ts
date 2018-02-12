@@ -21,6 +21,7 @@ export class PeopleDetailComponent implements OnInit {
     groupedTvCrew: any;
     groupedMovieCrew: any;
     knownFor: any;
+    showDetails = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -47,6 +48,7 @@ export class PeopleDetailComponent implements OnInit {
             .subscribe(person => {
                 this.details = person;
                 this.titleService.setTitle(this.details.name);
+                this.showDetails = true;
             })
     }
 

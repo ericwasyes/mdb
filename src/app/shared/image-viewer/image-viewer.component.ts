@@ -36,8 +36,9 @@ export class ImageViewerComponent implements OnInit {
     @Input() width: number;
     @Input() dialog: boolean;
     private config: Configuration;
-    private defaultPlaceholder: string = '../assets/poster-placeholder.jpg'
-    private avatarPlaceholder: string = '../assets/avatar-placeholder.png'
+    private defaultPlaceholder: string = '../assets/poster-placeholder.jpg';
+    private backdropPlaceholder: string = '../assets/backdrop-placeholder.jpg';
+    private avatarPlaceholder: string = '../assets/avatar-placeholder.png';
     private fullPath: string;
     private localStorageKey = 'api-configuration-key';
 
@@ -92,7 +93,7 @@ export class ImageViewerComponent implements OnInit {
     }
 
     determinePlaceholderPath(): string {
-        let result = this.type == 'search-list' ? this.defaultPlaceholder : this.type == 'avatar' ? this.avatarPlaceholder : this.defaultPlaceholder;
+        let result = this.type == 'search-list' ? this.defaultPlaceholder : this.type == 'avatar' ? this.avatarPlaceholder : this.type == 'backdrop' ? this.backdropPlaceholder : this.defaultPlaceholder;
         return result;
     }
 

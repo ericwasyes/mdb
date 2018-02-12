@@ -6,7 +6,7 @@ export class Episode {
     episode_number: number;
     guest_stars: GuestStar[];
     name: string;
-    overivew: string;
+    overview: string;
     id: number;
     production_code: number;
     season_number; number;

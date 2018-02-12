@@ -14,42 +14,41 @@ export class MoviesService {
 
     constructor(private http: HttpClient) { }
     
-    setPageNumber(page: number): HttpParams {
+    setParams(page: number): HttpParams {
+        console.log('page', page);
         if (page === undefined || page === null) {
             page = 1;
         }
 
-        let myParams = new HttpParams();
-        myParams = myParams.append('page', page.toString());
-
+        let myParams = new HttpParams()
+            .set('page', page.toString())
+            .set('region', 'US');
+        
         return myParams;
     }
 
     getPopular(page?: number): Observable<any> {
-        if (page !== undefined) {
-            this.setPageNumber
-        }
-        return this.http.get<ListResponse>(this.baseUrl + 'popular', {
-            params: this.setPageNumber(page)
-        });
+
+        const params = this.setParams(page);
+        return this.http.get<ListResponse>(this.baseUrl + 'popular', { params });
     }
 
     getTopRated(page?: number): Observable<ListResponse> {    
-        return this.http.get<ListResponse>(this.baseUrl + 'top_rated', {
-            params: this.setPageNumber(page)
-        });
+        const params = this.setParams(page);
+
+        return this.http.get<ListResponse>(this.baseUrl + 'top_rated', { params });
     }
 
     getUpcoming(page?: number): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'upcoming', {
-            params: this.setPageNumber(page)
-        });
+        const params = this.setParams(page);
+
+        return this.http.get<ListResponse>(this.baseUrl + 'upcoming', { params });
     }
 
     getNowPlaying(page?: number): Observable<ListResponse> {
-        return this.http.get<ListResponse>(this.baseUrl + 'now_playing', {
-            params: this.setPageNumber(page)
-        });
+        const params = this.setParams(page);
+
+        return this.http.get<ListResponse>(this.baseUrl + 'now_playing', { params });
     }
 
     getDetails(id: number): Observable<Details> {     

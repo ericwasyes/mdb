@@ -1,7 +1,7 @@
 <div class="main-container" [ngClass]="{'dark-theme' : theme == 'dark'}">
 
     <!-- Header / Search bar -->
-    <app-navbar [searchParams]="searchParams" (changeThemeEvent)="changeTheme($event)" (searchMovies)="search()"></app-navbar>    
+    <app-navbar (changeThemeEvent)="changeTheme($event)"></app-navbar>    
     
     <router-outlet></router-outlet>
 

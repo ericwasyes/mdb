@@ -12,7 +12,7 @@ export class CollectionOverviewComponent implements OnInit {
     @Input() collection: any
     collectionDetails: any;
 
-    private backdropImage: string;
+    public backdropImage: string;
 
     constructor(
         private configService: ConfigurationService,

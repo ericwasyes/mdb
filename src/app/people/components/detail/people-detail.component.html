@@ -1,6 +1,8 @@
-<div class="movie-detail">
+<div class="movie-detail" *ngIf="showDetails">
     <div class="pv+" [ngClass.md]="{'fixed-width' : true}" [ngClass.lg]="{'fixed-width' : true}" [ngClass.xl]="{'fixed-width' : true}">
-        <app-breadcrumbs></app-breadcrumbs>
+        <div class="mb+">
+            <app-breadcrumbs></app-breadcrumbs>
+        </div>
         <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="24px" fxLayoutAlign="space-between none">
             <div [ngClass.xs]="{'text-center' : true}" [ngClass.sm]="{'text-center' : true}">
                 <app-image-viewer [posterPath]="details?.profile_path" [type]="'detail'" [elevate]="true"></app-image-viewer>
@@ -8,8 +10,17 @@
             <div fxFlex class="mat-typography">
                 <h1 class="mat-headline">{{details?.name}}</h1>
                 <h3 class="subheading">Biography</h3>
-                <span class="mat-body-1">{{details?.biography}}</span>
-                <app-known-for [knownFor]="knownFor"></app-known-for>
+                <p #bioContent id="read-more">
+                    {{details?.biography}}
+                </p>
+                <div class="read-more read-more-link">
+                    <a read-more [read-more-length]="350" [read-more-element]="bioContent">
+                        <span class="less">Collapse</span>
+                        <span class="more">Read more</span>
+                    </a>
+                </div>
+
+                <!-- <app-known-for [knownFor]="knownFor"></app-known-for> -->
             </div>
         </div>
     </div>

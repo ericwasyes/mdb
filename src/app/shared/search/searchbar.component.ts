@@ -36,6 +36,7 @@ export class SearchbarComponent implements OnInit {
     };
 
     search(): void {
+        this.searchParams.page = 1;
         this.searchService.saveSearchParams(this.searchParams);
         this.router.navigate(['/' + this.selected.toLowerCase() + '/search']);
     }

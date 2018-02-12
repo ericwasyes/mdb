@@ -25,9 +25,9 @@ export enum KEY_CODE {
 })
 
 export class ImageDialogComponent {
-    private imageInView: string;
-    private disableNext = false;
-    private disablePrevious = false;
+    public imageInView: string;
+    public disableNext = false;
+    public disablePrevious = false;
 
     constructor(
         public dialogRef: MatDialogRef<ImageDialogComponent>,
